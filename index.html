@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower Theme - Responsive Replica</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ------------------------- */
+        /* --- 1. General Styles --- */
+        /* ------------------------- */
+        :root {
+            --ease-out-cubic: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            /* Font system based on header styles */
+            --font-family: 'Montserrat', sans-serif;
+            --font-weight-base: 500;
+            --font-weight-heading: 700;
+            --letter-spacing-base: 0.5px;
+            --letter-spacing-nav: 1px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-family);
+            font-weight: var(--font-weight-base);
+            letter-spacing: var(--letter-spacing-base);
+            background-color: #111;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style-type: none; }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s var(--ease-out-cubic), transform 0.8s var(--ease-out-cubic);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Global typography to match header --- */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-family);
+            font-weight: var(--font-weight-heading);
+            letter-spacing: var(--letter-spacing-nav);
+            text-transform: uppercase;
+            margin: 0 0 0.5rem 0;
+        }
+
+        p, a, li, span, button, input, textarea {
+            font-family: var(--font-family);
+            font-weight: var(--font-weight-base);
+            letter-spacing: var(--letter-spacing-base);
+        }
+
+        /* ------------------------- */
+        /* --- 2. Header --- */
+        /* ------------------------- */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 40px;
+            z-index: 1000;
+            background-color: transparent;
+            transition: padding 0.4s ease, background-color 0.4s ease;
+        }
+
+        .main-header.scrolled {
+            padding: 15px 40px;
+            background-color: rgba(10, 10, 10, 0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+    .logo { font-size: 28px; font-weight: var(--font-weight-heading); }
+        .main-nav { display: flex; } /* Changed from display: block to flex for ul */
+        .main-nav ul { display: flex; }
+        .main-nav ul li { position: relative; margin: 0 15px; }
+
+        .main-nav ul li a {
+            padding: 20px 5px;
+            font-size: 13px;
+            font-weight: var(--font-weight-base);
+            letter-spacing: var(--letter-spacing-nav);
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+        .main-nav ul li a:hover { color: #ccc; }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: -15px;
+            background-color: #222;
+            padding: 15px;
+            min-width: 220px;
+            border-top: 2px solid #fff;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.4s var(--ease-out-cubic);
+            z-index: 1001; /* Ensure dropdown is above content */
+        }
+        
+        .main-nav ul li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown li { margin: 0; padding: 8px 0; }
+        .dropdown li a { font-size: 13px; text-transform: none; padding: 0; }
+        .header-icons { display: flex; align-items: center; }
+        .header-icons a, .header-icons .hamburger-menu { font-size: 16px; margin-left: 20px; cursor: pointer; }
+
+        /* ------------------------- */
+        /* --- 3. Hero Slider --- */
+        /* ------------------------- */
+        .hero-slider {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slides-container {
+            display: flex;
+            width: 200%;
+            height: 100%;
+            transition: transform 1s var(--ease-out-cubic);
+        }
+        
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .slide-1 { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./pexels-olia-danilevich-4974922.jpg'); }
+        .slide-2 { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./pexels-vazhnik-7864382.jpg'); }
+
+        .slide-content {
+            text-align: center;
+            padding: 30px 50px;
+            border: 2px solid rgba(255, 255, 255, 0);
+            position: relative;
+        }
+        .slide-content::before, .slide-content::after {
+            content: '';
+            position: absolute;
+            background-color: #fff;
+            transition: transform 1s var(--ease-out-cubic);
+        }
+        .slide-content::before { top: 0; left: 0; width: 100%; height: 2px; transform: scaleX(0); }
+        .slide-content::after { top: 0; left: 0; width: 2px; height: 100%; transform: scaleY(0); }
+        
+        .slide.active .slide-content::before { transform: scaleX(1); transition-delay: 0.2s; }
+        .slide.active .slide-content::after { transform: scaleY(1); transition-delay: 0.2s; }
+        .slide.active .slide-border-right, .slide.active .slide-border-bottom { transform: scale(1); transition-delay: 0.2s; }
+        
+        .slide-border-right, .slide-border-bottom {
+            position: absolute;
+            background-color: #fff;
+            transform: scale(0);
+            transition: transform 1s var(--ease-out-cubic);
+        }
+        .slide-border-right { top: 0; right: 0; width: 2px; height: 100%; transform-origin: top; }
+        .slide-border-bottom { bottom: 0; left: 0; width: 100%; height: 2px; transform-origin: right; }
+        
+        .slide-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease 0.8s, transform 0.8s ease 0.8s, font-size 0.4s ease;
+        }
+        .slide.active .slide-content h1 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 20px;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        .hero-slider:hover .slider-nav { opacity: 1; }
+        .slider-nav.prev { left: 30px; }
+        .slider-nav.next { right: 30px; }
+        .slider-nav span {
+            position: absolute;
+            font-size: 12px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .slider-nav.prev span { right: 120%; }
+        .slider-nav.next span { left: 120%; }
+        .slider-nav:hover span { opacity: 1; }
+        
+        /* ------------------------- */
+        /* --- 4. Side Menu Panel --- */
+        /* ------------------------- */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 350px;
+            height: 100vh;
+            background-color: #1a1a1a;
+            z-index: 2000;
+            padding: 40px;
+            transform: translateX(100%);
+            transition: transform 0.6s var(--ease-out-cubic), width 0.6s var(--ease-out-cubic);
+        }
+        .side-menu.active { transform: translateX(0); }
+        .side-menu-header { display: flex; justify-content: flex-end; margin-bottom: 40px; }
+        .close-btn { font-size: 24px; cursor: pointer; }
+        .side-menu-content h4 { font-size: 12px; color: #888; margin-bottom: 10px; text-transform: uppercase; }
+        .side-menu-content p, .side-menu-content a { color: #ccc; line-height: 1.6; font-size: 14px; }
+        .side-menu-section { margin-bottom: 30px; }
+        .side-menu-nav ul li { padding: 10px 0; border-bottom: 1px solid #333; }
+
+        /* ------------------------- */
+      /* ------------------------- */
+/* --- 5. Services Section --- */
+/* ------------------------- */
+.services-section {
+    padding: 120px 50px;
+    text-align: center;
+    background-color: #111; /* Changed from #fff */
+    color: #fff;             /* Changed from #333 */
+    transition: padding 0.4s ease;
+}
+.section-title span { display: block; }
+.section-title .subtitle { 
+    font-size: 14px; 
+    color: #ccc; /* Changed from #777 */
+} 
+.section-title .maintitle { 
+    font-size: 32px; 
+    font-weight: bold; 
+    margin-bottom: 60px; 
+    /* This will inherit the new color: #fff */
+}
+.services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: flex-direction 0s ease; /* Prevent animation on direction change */
+}
+.service-item { flex: 1; min-width: 250px; padding: 20px; }
+.service-item .icon { 
+    font-size: 40px; 
+    margin-bottom: 20px; 
+    color: #bbb; /* Changed from #555 */
+}
+.service-item h3 { 
+    font-size: 16px; 
+    margin-bottom: 15px; 
+    text-transform: uppercase; 
+    /* This will inherit the new color: #fff */
+}
+.service-item p { 
+    font-size: 14px; 
+    color: #ccc; /* Changed from #666 */
+    line-height: 1.7; 
+}
+
+        .service-item:nth-child(2) { transition-delay: 0.2s; }
+        .service-item:nth-child(3) { transition-delay: 0.4s; }
+
+
+        /* -------------------------------- */
+        /* --- 6. RESPONSIVE MEDIA QUERIES --- */
+        /* -------------------------------- */
+
+        /* --- Tablet (e.g., iPads) --- */
+        @media (max-width: 992px) {
+            .main-nav {
+                display: none; /* Hide main navigation links */
+            }
+
+            .main-header {
+                padding: 20px 30px;
+            }
+            .main-header.scrolled {
+                padding: 15px 30px;
+            }
+
+            .slide-content h1 {
+                font-size: 36px; /* Smaller font for hero */
+            }
+
+            .services-section {
+                padding: 100px 30px;
+            }
+        }
+
+        /* --- Mobile (e.g., iPhones, Android) --- */
+        @media (max-width: 768px) {
+            .main-header {
+                padding: 20px;
+            }
+            .main-header.scrolled {
+                padding: 15px 20px;
+            }
+            
+            .header-icons a, .header-icons .hamburger-menu {
+                margin-left: 15px; /* Reduce spacing between icons */
+            }
+
+            .slide-content {
+                padding: 20px 30px; /* Smaller padding for content box */
+            }
+            .slide-content h1 {
+                font-size: 28px; /* Even smaller font for mobile */
+            }
+
+            .slider-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            .slider-nav.prev { left: 15px; }
+            .slider-nav.next { right: 15px; }
+            .slider-nav span { display: none; } /* Hide PREV/NEXT text */
+
+
+            .side-menu {
+                width: 90vw; /* Make side menu wider on mobile */
+                padding: 30px;
+            }
+
+            .services-section {
+                padding: 80px 20px;
+            }
+            
+            .services-grid {
+                flex-direction: column; /* Stack services vertically */
+                gap: 20px;
+            }
+            
+            .service-item p {
+                max-width: 400px; /* Constrain text width for readability */
+                margin: 0 auto;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">Tech-Business</div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                
+                <li>
+                    <a href="#">Pages</a>
+                    <ul class="dropdown">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Blog</a></li>
+                
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <a href="#"><i class="fas fa-search"></i></a>
+           
+            <div class="hamburger-menu"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-slider">
+            <div class="slides-container">
+                <div class="slide slide-1 active">
+                    <div class="slide-content">
+                        <div class="slide-border-right"></div>
+                        <div class="slide-border-bottom"></div>
+                        <h1>High Quality <br> Wordpress Theme</h1>
+                    </div>
+                </div>
+                <div class="slide slide-2">
+                    <div class="slide-content">
+                        <div class="slide-border-right"></div>
+                        <div class="slide-border-bottom"></div>
+                        <h1>premium  projects</h1>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slider-nav prev"><i class="fas fa-chevron-left"></i></div>
+            <div class="slider-nav next"><i class="fas fa-chevron-right"></i></div>
+        </section>
+
+        
+    </main>
+
+    <div class="side-menu">
+        <div class="side-menu-header"><div class="close-btn"><i class="fas fa-times"></i></div></div>
+        <div class="side-menu-content">
+            <div class="side-menu-section">
+                <h4>Why Choose Us?</h4>
+                <p>Codeless has been quietly but consistently building a powerhouse portfolio of web site design and marketing success.</p>
+            </div>
+            <div class="side-menu-section side-menu-nav">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact </a></li>
+                </ul>
+            </div>
+            <div class="side-menu-section">
+                <h4>Our Works</h4>
+                <p>Photography, SEO, Web Design, What's New</p>
+            </div>
+        </div>
+    </div>
+
+<style>
+/* --- MAIN CONTAINER --- */
+.animated-split-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- EACH SLIDE --- */
+.split-slide-full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Reversed slide: image on left, text on right */
+.split-slide-full.layout-reversed {
+    flex-direction: row-reverse;
+}
+
+/* --- PANE STYLES --- */
+.split-pane {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-pane {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.image-pane::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+}
+
+/* --- TEXT SIDE --- */
+.text-pane {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* Mirrored layout for reversed slides */
+.split-slide-full.layout-reversed .text-pane {
+    background-color: #000;
+    text-align: left;
+    padding: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* --- TEXT CONTENT --- */
+.split-left-content {
+    max-width: 500px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
+}
+
+.split-slide-full.active .split-left-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.split-left-content h3 {
+    font-size: 1rem;
+    color: #aaa;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.split-left-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.split-view-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.split-view-btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* --- HEADER --- */
+.split-header {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    z-index: 5;
+    color: #fff;
+}
+
+.split-logo {
+    font-weight: bold;
+}
+
+.split-hamburger {
+    cursor: pointer;
+}
+
+/* --- DOT NAVIGATION --- */
+.split-nav-dots {
+    position: absolute;
+    left: 50%;
+    margin-left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    z-index: 20;
+}
+
+.split-dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.split-dot.active {
+    background-color: #ffffff;
+}
+
+/* --- ALWAYS VISIBLE ARROWS (BOTTOM CENTER) --- */
+.split-nav-arrows {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 30;
+}
+
+.split-arrow-btn {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.split-arrow-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.split-arrow-btn.disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* --- RESPONSIVE STYLING --- */
+@media (max-width: 1024px) {
+    .split-left-content h1 {
+        font-size: 2.8rem;
+    }
+    .text-pane {
+        padding: 3rem;
+    }
+}
+
+/* MOBILE / TABLET STACKED DESIGN */
+@media (max-width: 768px) {
+    .split-slide-full {
+        flex-direction: column !important;
+    }
+
+    .split-pane {
+        width: 100%;
+        height: 50%;
+    }
+
+    /* Text always below image on mobile */
+    .text-pane {
+        order: 2;
+        padding: 2rem;
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    .split-left-content {
+        max-width: 100%;
+    }
+
+    .split-left-content h1 {
+        font-size: 2rem;
+    }
+
+    .split-nav-arrows {
+        bottom: 20px;
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .split-arrow-btn {
+        width: 45px;
+        height: 45px;
+    }
+
+    .split-nav-dots {
+        top: auto;
+        bottom: 70px;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: row;
+        gap: 10px;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+    .split-left-content h1 {
+        font-size: 1.6rem;
+    }
+    .split-view-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    .split-header {
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        font-size: 1rem;
+    }
+}
+</style>
+
+
+
+<section class="animated-split-container">
+    
+    <section class="split-slide-full" data-slide-id="0">
+        <div class="split-pane text-pane">
+            <div class="split-header">
+                
+                
+            </div>
+            <div class="split-left-content">
+                <h3>Our Services</h3>
+                <h1>Web Developement</h1>
+                <a href="#" class="split-view-btn">View Projects</a>
+            </div>
+        </div>
+        <div class="split-pane image-pane" 
+             style="background-image: url('./pexels-sora-shimazaki-5926370.jpg');">
+        </div>
+    </section>
+
+    <section class="split-slide-full layout-reversed" data-slide-id="1">
+        <div class="split-pane text-pane">
+            <div class="split-header">
+                
+                
+            </div>
+            <div class="split-left-content">
+                <h3>Our Services</h3>
+                <h1>App Developement</h1>
+                <a href="#" class="split-view-btn">View Projects</a>
+            </div>
+        </div>
+        <div class="split-pane image-pane" 
+             style="background-image: url('./pexels-mikhail-nilov-7534804.jpg');">
+        </div>
+    </section>
+
+    <section class="split-slide-full" data-slide-id="2">
+        <div class="split-pane text-pane">
+            <div class="split-header">
+              
+                
+            </div>
+            <div class="split-left-content">
+                <h3>Our Services</h3>
+                <h1>Artificial Intelligence</h1>
+                <a href="#" class="split-view-btn">View Projects</a>
+            </div>
+        </div>
+        <div class="split-pane image-pane" 
+             style="background-image: url('./pexels-cottonbro-6153739.jpg');">
+        </div>
+    </section>
+
+    <div class="split-nav-dots" id="split-nav-dots">
+    </div>
+
+    <div class="split-nav-arrows">
+        <div class="split-arrow-btn split-arrow-up">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+        <div class="split-arrow-btn split-arrow-down">
+            <i class="fas fa-arrow-down"></i>
+        </div>
+    </div>
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    const container = document.querySelector(".animated-split-container");
+
+    if (container) {
+        const slides = container.querySelectorAll(".split-slide-full");
+        const dotsContainer = container.querySelector("#split-nav-dots");
+        const arrowsContainer = container.querySelector(".split-nav-arrows");
+        const arrowUp = container.querySelector(".split-arrow-up");
+        const arrowDown = container.querySelector(".split-arrow-down");
+
+        let currentSlide = 0;
+        let isAnimating = false;
+        const animationDuration = 900;
+        const scrollCooldown = 400;
+
+        // --- Initialize slides and dots ---
+        function initialize() {
+            slides.forEach((_, index) => {
+                const dot = document.createElement("div");
+                dot.classList.add("split-dot");
+                if (index === 0) dot.classList.add("active");
+                dot.addEventListener("click", () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+
+            slides.forEach((slide, index) => {
+                if (index !== 0) slide.style.transform = "translateY(100%)";
+            });
+
+            slides[0].classList.add("active");
+            updateArrowStates();
+        }
+
+        // --- Slide transition ---
+        function goToSlide(newIndex) {
+            if (isAnimating || newIndex === currentSlide || newIndex < 0 || newIndex >= slides.length) {
+                return;
+            }
+
+            isAnimating = true;
+            const oldIndex = currentSlide;
+            slides[oldIndex].classList.remove("active");
+            updateDots(newIndex);
+
+            if (newIndex > oldIndex) {
+                slides[oldIndex].style.transform = "translateY(-100%)";
+                slides[newIndex].style.transform = "translateY(0%)";
+            } else {
+                slides[oldIndex].style.transform = "translateY(100%)";
+                slides[newIndex].style.transform = "translateY(0%)";
+            }
+
+            slides.forEach((slide, index) => {
+                if (index !== newIndex && index !== oldIndex) {
+                    if (index < newIndex) {
+                        slide.style.transform = 'translateY(-100%)';
+                    } else {
+                        slide.style.transform = 'translateY(100%)';
+                    }
+                }
+            });
+
+            setTimeout(() => {
+                slides[newIndex].classList.add("active");
+            }, 400);
+
+            currentSlide = newIndex;
+            updateArrowStates();
+
+            setTimeout(() => {
+                isAnimating = false;
+            }, animationDuration + scrollCooldown);
+        }
+
+        function updateDots(index) {
+            const dots = dotsContainer.querySelectorAll(".split-dot");
+            dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+        }
+
+        function updateArrowStates() {
+            arrowUp.classList.toggle("disabled", currentSlide === 0);
+            arrowDown.classList.toggle("disabled", currentSlide === slides.length - 1);
+        }
+
+        // --- SCROLL HANDLER (desktop wheel) ---
+        let scrollTimeout;
+        window.addEventListener("wheel", (e) => {
+            if (isAnimating) return;
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                if (e.deltaY > 0) goToSlide(currentSlide + 1);
+                else if (e.deltaY < 0) goToSlide(currentSlide - 1);
+            }, 100);
+        });
+
+        // --- TOUCH HANDLER (mobile swipe) ---
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        container.addEventListener("touchstart", (e) => {
+            touchStartY = e.touches[0].clientY;
+        });
+
+        container.addEventListener("touchmove", (e) => {
+            touchEndY = e.touches[0].clientY;
+        });
+
+        container.addEventListener("touchend", () => {
+            const touchDiff = touchStartY - touchEndY;
+            if (Math.abs(touchDiff) > 60 && !isAnimating) {
+                if (touchDiff > 0) goToSlide(currentSlide + 1);
+                else goToSlide(currentSlide - 1);
+            }
+        });
+
+        // --- ARROW BUTTONS ---
+        arrowUp.addEventListener('click', () => goToSlide(currentSlide - 1));
+        arrowDown.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+        // --- Initialize all ---
+        initialize();
+    }
+});
+</script>
+
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Header Scroll Logic ---
+            const header = document.querySelector('.main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // --- Side Menu Logic ---
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const sideMenu = document.querySelector('.side-menu');
+            const closeBtn = document.querySelector('.close-btn');
+            if (hamburgerMenu && sideMenu && closeBtn) {
+                hamburgerMenu.addEventListener('click', () => sideMenu.classList.add('active'));
+                closeBtn.addEventListener('click', () => sideMenu.classList.remove('active'));
+            }
+
+            // --- Slider Logic ---
+            const slidesContainer = document.querySelector('.slides-container');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.querySelector('.slider-nav.prev');
+            const nextBtn = document.querySelector('.slider-nav.next');
+            
+            if (slidesContainer && slides.length > 0 && prevBtn && nextBtn) {
+                let currentSlide = 0;
+                const totalSlides = slides.length;
+
+                function updateSlider() {
+                    const offset = -currentSlide * 100;
+                    slidesContainer.style.transform = `translateX(${offset}vw)`;
+                    slides.forEach((slide, index) => {
+                        if (index === currentSlide) {
+                            slide.classList.add('active');
+                        } else {
+                            slide.classList.remove('active');
+                        }
+                    });
+                }
+
+                nextBtn.addEventListener('click', () => {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    updateSlider();
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                    updateSlider();
+                });
+                
+                // Initialize slider on load
+                updateSlider();
+            }
+
+
+            // --- Scroll Reveal Animation Logic ---
+            const revealElements = document.querySelectorAll('.reveal');
+            if (revealElements.length > 0) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+
+                revealElements.forEach(el => {
+                    observer.observe(el);
+                });
+            }
+        });
+    </script>
+
+
+
+
+    <section class="services-section">
+            <div class="section-title reveal">
+                <span class="subtitle">what we do</span>
+                <span class="maintitle">ABOUT US</span>
+            </div>
+            <div class="services-grid">
+                <div class="service-item reveal">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>High Performance</h3>
+                    <p>Sed ut perspiciatis unde omnis iste sit voluptatem accusantium doloremque laudantium, totam rem.</p>
+                </div>
+                <div class="service-item reveal">
+                    <div class="icon"><i class="fas fa-arrows-alt"></i></div>
+                    <h3>Drag & Drop</h3>
+                    <p>Sed ut perspiciatis unde omnis iste sit voluptatem accusantium doloremque laudantium, totam rem.</p>
+                </div>
+                <div class="service-item reveal">
+                    <div class="icon"><i class="fas fa-desktop"></i></div>
+                    <h3>Fully Responsive</h3>
+                    <p>Sed ut perspiciatis unde omnis iste sit voluptatem accusantium doloremque laudantium, totam rem.</p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="stats-section">
+    <div class="stats-container">
+        
+        <div class="stat-item">
+            <h2 class="stat-number">
+                <span class="counter" data-target="10">0</span>+
+            </h2>
+            <h3 class="stat-title">Years of Experience</h3>
+            <p class="stat-description">
+                Auctor ut varius sapien consequat. Amet dui egestas arcu in pulvinar posuere cursus ac. Mattis ut adipiscing mi laoreet ut.
+            </p>
+        </div>
+        
+        <div class="stat-item">
+            <h2 class="stat-number">
+                <span class="counter" data-target="15">0</span>+
+            </h2>
+            <h3 class="stat-title">Industry Awards Won</h3>
+            <p class="stat-description">
+                Auctor ut varius sapien consequat. Amet dui egestas arcu in pulvinar posuere cursus ac. Mattis ut adipiscing mi laoreet ut.
+            </p>
+        </div>
+        
+        <div class="stat-item">
+            <h2 class="stat-number">
+                <span class="counter" data-target="20">0</span>+
+            </h2>
+            <h3 class="stat-title">Cities Served</h3>
+            <p class="stat-description">
+                Auctor ut varius sapien consequat. Amet dui egestas arcu in pulvinar posuere cursus ac. Mattis ut adipiscing mi laoreet ut.
+            </p>
+        </div>
+
+    </div>
+</section>
+<style>
+    /* ==================================================
+  == CSS FOR THE STATS SECTION
+  ==================================================
+*/
+
+.stats-section {
+    /* Black background as requested */
+    background-color: #000000; 
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px; /* Adds space between items when they wrap */
+}
+
+.stat-item {
+    flex: 1; /* Each item will try to take equal space */
+    min-width: 280px; /* Ensures items don't get too small */
+    padding: 20px;
+}
+
+.stat-number {
+    /* This is the large number (e.g., 10+) */
+    font-size: 4.5rem; /* 72px */
+    font-weight: 700;
+    /* Color sampled from your image */
+    color: #BFA98E; 
+    margin: 0 0 10px 0;
+    /* Ensure font supports the '+' sign well */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.stat-title {
+    /* This is the heading (e.g., Years of Experience) */
+    font-size: 1.25rem; /* 20px */
+    font-weight: 600;
+    color: #FFFFFF; /* White text */
+    margin: 0 0 15px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.stat-description {
+    /* This is the placeholder text */
+    font-size: 1rem; /* 16px */
+    color: #AAAAAA; /* Light gray text */
+    line-height: 1.6;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+</style>
+
+<script>
+    // We wrap the code in a 'DOMContentLoaded' event listener
+    // to ensure the HTML elements are loaded before the script runs.
+    document.addEventListener("DOMContentLoaded", () => {
+        
+        const counters = document.querySelectorAll('.counter');
+        const statsSection = document.querySelector('.stats-section');
+
+        // This function will be triggered when the section is visible
+        const startCounterAnimation = (entries, observer) => {
+            entries.forEach(entry => {
+                // Check if the section is intersecting (visible)
+                if (entry.isIntersecting) {
+                    counters.forEach(counter => {
+                        // Ensure we only animate each counter once
+                        if (!counter.classList.contains('animated')) {
+                            counter.classList.add('animated');
+                            
+                            const target = +counter.getAttribute('data-target');
+                            const duration = 2000; // 2 seconds
+                            const increment = target / (duration / 10); 
+
+                            let current = 0;
+
+                            const updateCounter = () => {
+                                current += increment;
+
+                                if (current < target) {
+                                    counter.innerText = Math.ceil(current);
+                                    setTimeout(updateCounter, 10); // Run every 10ms
+                                } else {
+                                    counter.innerText = target; // Ensure it ends on the target
+                                }
+                            };
+                            updateCounter();
+                        }
+                    });
+
+                    // Stop observing once the animation has started
+                    observer.unobserve(statsSection);
+                }
+            });
+        };
+
+        // Create an Intersection Observer to watch when the section scrolls into view
+        const observer = new IntersectionObserver(startCounterAnimation, {
+            root: null, // observes intersections relative to the viewport
+            threshold: 0.1 // triggers when 10% of the element is visible
+        });
+
+        // Start observing the stats section, if it exists
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    });
+</script>
+
+<div class="faq-container">
+    
+    <div class="faq-item">
+        <button class="faq-question">What are the benefits of the Premium plan?</button>
+        <div class="faq-answer">
+            <p>The Premium plan gives you unlimited access to all our exclusive content, an ad-free experience, priority support, and access to our members-only community forum. You also get early access to new features before anyone else.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">How do I manage my subscription?</button>
+        <div class="faq-answer">
+            <p>You can easily manage your subscription by logging into your account and navigating to the "Billing" section. From there, you can upgrade, downgrade, or cancel your plan at any time. All changes will be reflected in your next billing cycle.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">Can I cancel my membership at any time?</button>
+        <div class="faq-answer">
+            <p>Yes, absolutely. We believe in earning your business every month. You can cancel your membership at any time from your account settings with no hidden fees or penalties. Your access will continue until the end of your current billing period.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">What payment methods do you accept?</button>
+        <div class="faq-answer">
+            <p>We accept all major credit cards, including Visa, Mastercard, and American Express. We also support payments through PayPal for your convenience. All transactions are processed through a secure, encrypted connection.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">Is my personal data secure?</button>
+        <div class="faq-answer">
+            <p>Data security is our highest priority. We use industry-standard SSL encryption for all data transmission and store your information on secure, access-controlled servers. We never sell your personal data to third parties. You can read our full Privacy Policy for more details.</p>
+        </div>
+    </div>
+
+</div>
+<style>
+    /* === PREMIUM FAQ SECTION STYLES === */
+
+/* --- The Main FAQ Container --- */
+.faq-container {
+    max-width: 800px;
+    margin: 40px auto; /* Added margin for spacing */
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #333; /* Subtle border */
+}
+
+/* --- Individual FAQ Item --- */
+.faq-item {
+    border-bottom: 1px solid #333; /* Separator line */
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+/* --- The Question (Clickable Button) --- */
+.faq-question {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    padding: 24px 30px;
+    
+    /* Assumes 'Inter' font is loaded on the page */
+    font-family: inherit; 
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #FFFFFF; /* Bright white for the question */
+    
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    /* For the + / - icon */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question:hover {
+    background-color: #1A1A1A; /* Subtle hover effect */
+}
+
+/* --- The Plus/Minus Icon --- */
+.faq-question::after {
+    content: '+';
+    font-size: 2rem;
+    font-weight: 300;
+    color: #D4AF37; /* Premium Gold Accent */
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+    content: '−'; /* Minus sign */
+    transform: rotate(180deg);
+}
+
+/* --- The Answer (Hidden by default) --- */
+.faq-answer {
+    max-height: 0; /* This is the trick to hide it */
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    
+    color: #B0B0B0; /* Answer text is slightly dimmer */
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* This class is added by JavaScript */
+.faq-answer.active {
+    /* The 'scrollHeight' will be set by JS, but we need padding */
+    padding: 0 30px 24px 30px;
+}
+
+/* The <p> tag inside the answer */
+.faq-answer p {
+    margin: 0;
+}
+</style>
+<script>
+    // === PREMIUM FAQ ACCORDION SCRIPT ===
+
+const allFaqQuestions = document.querySelectorAll('.faq-question');
+
+allFaqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+        // Find the answer panel
+        const answer = question.nextElementSibling;
+
+        // Toggle the 'active' class on the button
+        question.classList.toggle('active');
+        
+        // Toggle the 'active' class on the answer
+        answer.classList.toggle('active');
+
+        // Set the max-height for the smooth transition
+        if (answer.classList.contains('active')) {
+            // Set max-height to the scroll height to show the content
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+            // Set max-height to null (or '0') to hide it
+            answer.style.maxHeight = null;
+        }
+    });
+});
+</script>
+
+<!-- footer -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-column footer-brand">
+      <a href="#" class="footer-logo">Lynx</a>
+      <p class="footer-tagline">Technology Blog</p>
+    </div>
+
+    <div class="footer-column footer-links">
+      <h4>Main</h4>
+      <ul>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="#">Authors</a></li>
+      </ul>
+    </div>
+
+    
+
+    <div class="footer-column footer-socials">
+      <h4>Socials</h4>
+      <ul>
+        <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+        <li><a href="#"><i class="fab fa-pinterest-p"></i> Pinterest</a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="#"><i class="fab fa-deviantart"></i> Deviantart</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom-bar">
+    <p class="footer-copyright">
+      © Lynx – 2023. All your reserved. Powered by BuzzBlog.
+    </p>
+    
+  </div>
+</footer>
+<style>
+    /* --- Root Variables (for easy color changes) --- */
+:root {
+  --footer-bg: #000000;
+  --footer-text: #a0a0a0;
+  --footer-heading: #ffffff;
+  --footer-link-hover: #ffffff;
+  --footer-border: #2a2a2a;
+  --accent-color: #00bfff; /* Bright cyan/blue from image */
+}
+
+/* --- Base Footer Styling --- */
+.site-footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  padding: 60px 0 20px 0;
+}
+
+/* --- Main Footer Container (Grid) --- */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  /* Columns: 1.5fr for brand, 1fr for each link list */
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.footer-column {
+  padding: 0 15px;
+}
+
+/* Add the vertical divider lines */
+.footer-links,
+.footer-socials {
+  border-left: 1px solid var(--footer-border);
+  padding-left: 30px;
+}
+
+/* --- Column 1: Brand --- */
+.footer-brand .footer-logo {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--footer-heading);
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.footer-brand .footer-tagline {
+  font-size: 24px;
+  color: var(--footer-text);
+  margin: 0;
+}
+
+/* --- Columns 2, 3, 4: Links & Socials --- */
+.footer-column h4 {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--footer-heading);
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+  color: var(--footer-text);
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-column ul li a:hover {
+  color: var(--footer-link-hover);
+}
+
+/* Specifics for Socials */
+.footer-socials ul li a {
+  display: flex;
+  align-items: center;
+}
+
+.footer-socials ul li i {
+  width: 30px; /* Aligns text neatly */
+  font-size: 18px;
+  margin-right: 5px;
+  text-align: left;
+}
+
+/* --- Bottom Bar --- */
+.footer-bottom-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px 0 20px;
+  border-top: 1px solid var(--accent-color); /* Accent color line */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  margin: 0;
+}
+
+
+
+/* --- Responsive (for tablets and mobile) --- */
+@media (max-width: 992px) {
+  .footer-container {
+    /* Stacks into 2 columns */
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    /* Stacks into 1 column */
+    grid-template-columns: 1fr;
+  }
+  
+  /* Remove vertical lines on mobile */
+  .footer-links,
+  .footer-socials {
+    border-left: none;
+    padding-left: 15px; /* Back to original padding */
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .back-to-top {
+    /* Place the button last */
+    order: 2;
+  }
+  
+  .footer-copyright {
+    order: 1;
+  }
+}
+</style>
+
+
+
+
+        
+</body>
+</html>
