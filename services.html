@@ -162,8 +162,8 @@
             align-items: center;
         }
         
-        .slide-1 { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./pexels-olia-danilevich-4974922.jpg'); }
-        .slide-2 { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./pexels-vazhnik-7864382.jpg'); }
+        .slide-1 { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./pexels-olly-845451.jpg'); }
+   
 
         .slide-content {
             text-align: center;
@@ -512,20 +512,14 @@
                     <div class="slide-content">
                         <div class="slide-border-right"></div>
                         <div class="slide-border-bottom"></div>
-                        <h1>High Quality <br> Wordpress Theme</h1>
+                        <h1>Leading Software <br> Company </h1>
+                        
                     </div>
                 </div>
-                <div class="slide slide-2">
-                    <div class="slide-content">
-                        <div class="slide-border-right"></div>
-                        <div class="slide-border-bottom"></div>
-                        <h1>premium  projects</h1>
-                    </div>
-                </div>
+               
             </div>
             
-            <div class="slider-nav prev"><i class="fas fa-chevron-left"></i></div>
-            <div class="slider-nav next"><i class="fas fa-chevron-right"></i></div>
+     
         </section>
 
         </main>
@@ -564,398 +558,7 @@
 
     <script src="script.js" defer></script>
 
-<style>
-/* --- MAIN CONTAINER --- */
-.animated-split-container {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-}
 
-/* --- EACH SLIDE --- */
-.split-slide-full {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-/* Reversed slide: image on left, text on right */
-.split-slide-full.layout-reversed {
-    flex-direction: row-reverse;
-}
-
-/* --- PANE STYLES --- */
-.split-pane {
-    width: 50%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.image-pane {
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-.image-pane::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.25);
-    pointer-events: none;
-}
-
-/* --- TEXT SIDE --- */
-.text-pane {
-    background-color: #000;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 4rem;
-    box-sizing: border-box;
-    text-align: left;
-}
-
-/* Mirrored layout for reversed slides */
-.split-slide-full.layout-reversed .text-pane {
-    background-color: #000;
-    text-align: left;
-    padding: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-/* --- TEXT CONTENT --- */
-.split-left-content {
-    max-width: 500px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
-}
-
-.split-slide-full.active .split-left-content {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.split-left-content h3 {
-    font-size: 1rem;
-    color: #aaa;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.split-left-content h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-}
-
-.split-view-btn {
-    display: inline-block;
-    text-decoration: none;
-    color: #fff;
-    border: 1px solid #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 500;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.split-view-btn:hover {
-    background-color: #fff;
-    color: #000;
-}
-
-/* --- HEADER --- */
-.split-header {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    right: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.2rem;
-    z-index: 5;
-    color: #fff;
-}
-
-.split-logo {
-    font-weight: bold;
-}
-
-.split-hamburger {
-    cursor: pointer;
-}
-
-/* --- DOT NAVIGATION --- */
-.split-nav-dots {
-    position: absolute;
-    left: 50%;
-    margin-left: -40px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    z-index: 20;
-}
-
-.split-dot {
-    width: 10px;
-    height: 10px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.split-dot.active {
-    background-color: #ffffff;
-}
-
-/* --- ALWAYS VISIBLE ARROWS (BOTTOM CENTER) --- */
-.split-nav-arrows {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    z-index: 30;
-}
-
-.split-arrow-btn {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.3s, opacity 0.3s;
-}
-
-.split-arrow-btn:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.split-arrow-btn.disabled {
-    opacity: 0.2;
-    cursor: not-allowed;
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-/* --- RESPONSIVE STYLING --- */
-@media (max-width: 1024px) {
-    .split-left-content h1 {
-        font-size: 2.8rem;
-    }
-    .text-pane {
-        padding: 3rem;
-    }
-}
-
-/* ✅ MOBILE / TABLET STACKED DESIGN — TEXT TOP + IMAGE BOTTOM */
-@media (max-width: 768px) {
-    .split-slide-full {
-        flex-direction: column !important;
-    }
-
-    .split-pane {
-        width: 100%;
-        height: 50%;
-    }
-
-    /* ✅ TEXT AT TOP */
-    .text-pane {
-        order: 1 !important;
-        padding: 2rem;
-        text-align: center !important;
-        align-items: center !important;
-    }
-
-    /* ✅ IMAGE BOTTOM */
-    .image-pane {
-        order: 2 !important;
-    }
-
-    .split-left-content {
-        max-width: 100%;
-    }
-
-    .split-left-content h1 {
-        font-size: 2rem;
-    }
-
-    .split-nav-arrows {
-        bottom: 20px;
-        flex-direction: row;
-        gap: 15px;
-    }
-
-    .split-arrow-btn {
-        width: 45px;
-        height: 45px;
-    }
-
-    .split-nav-dots {
-        bottom: 70px;
-        left: 50%;
-        transform: translateX(-50%);
-        flex-direction: row;
-        gap: 10px;
-    }
-}
-
-/* SMALL MOBILE */
-@media (max-width: 480px) {
-    .split-left-content h1 {
-        font-size: 1.6rem;
-    }
-    .split-view-btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-    }
-    .split-header {
-        top: 20px;
-        left: 20px;
-        right: 20px;
-        font-size: 1rem;
-    }
-}
-</style>
-
-
-
-<section class="animated-split-container">
-
-    <section class="split-slide-full" data-slide-id="0">
-        <div class="split-pane text-pane">
-            <div class="split-left-content">
-                <h3>Our Services</h3>
-                <h1>Web Developement</h1>
-                <a href="#" class="split-view-btn">View Projects</a>
-            </div>
-        </div>
-        <div class="split-pane image-pane"
-             style="background-image: url('./pexels-sora-shimazaki-5926370.jpg');">
-        </div>
-    </section>
-
-    <section class="split-slide-full layout-reversed" data-slide-id="1">
-        <div class="split-pane text-pane">
-            <div class="split-left-content">
-                <h3>Our Services</h3>
-                <h1>App Developement</h1>
-                <a href="#" class="split-view-btn">View Projects</a>
-            </div>
-        </div>
-        <div class="split-pane image-pane"
-             style="background-image: url('./pexels-mikhail-nilov-7534804.jpg');">
-        </div>
-    </section>
-
-    <section class="split-slide-full" data-slide-id="2">
-        <div class="split-pane text-pane">
-            <div class="split-left-content">
-                <h3>Our Services</h3>
-                <h1>Artificial Intelligence</h1>
-                <a href="#" class="split-view-btn">View Projects</a>
-            </div>
-        </div>
-        <div class="split-pane image-pane"
-             style="background-image: url('./pexels-cottonbro-6153739.jpg');">
-        </div>
-    </section>
-
-    <div class="split-nav-dots" id="split-nav-dots"></div>
-
-    <div class="split-nav-arrows">
-        <div class="split-arrow-btn split-arrow-up"><i class="fas fa-arrow-up"></i></div>
-        <div class="split-arrow-btn split-arrow-down"><i class="fas fa-arrow-down"></i></div>
-    </div>
-</section>
-
-
-<script>
-    // JavaScript for Animated Split Slide
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const slides = document.querySelectorAll('.split-slide-full');
-        const navDotsContainer = document.getElementById('split-nav-dots');
-        const arrowUp = document.querySelector('.split-arrow-up');
-        const arrowDown = document.querySelector('.split-arrow-down');
-        let currentSlide = 0;
-
-        // Create navigation dots
-        slides.forEach((slide, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('split-dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(index));
-            navDotsContainer.appendChild(dot);
-        });
-
-        const navDots = document.querySelectorAll('.split-dot');
-
-        function updateSlidePosition() {
-            slides.forEach((slide, index) => {
-                slide.style.transform = `translateY(${(index - currentSlide) * 100}%)`;
-                slide.classList.toggle('active', index === currentSlide);
-            });
-            navDots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-            updateArrowState();
-        }
-
-        function updateArrowState() {
-            arrowUp.classList.toggle('disabled', currentSlide === 0);
-            arrowDown.classList.toggle('disabled', currentSlide === slides.length - 1);
-        }
-
-        function goToSlide(index) {
-            if (index < 0 || index >= slides.length) return;
-            currentSlide = index;
-            updateSlidePosition();
-        }
-
-        arrowUp.addEventListener('click', () => {
-            if (currentSlide > 0) {
-                goToSlide(currentSlide - 1);
-            }
-        });
-
-        arrowDown.addEventListener('click', () => {
-            if (currentSlide < slides.length - 1) {
-                goToSlide(currentSlide + 1);
-            }
-        });
-
-        // Initialize slide positions
-        updateSlidePosition();
-    });
-</script>
 
 
 
@@ -1039,337 +642,236 @@
     </script>
 
 
-
-
-    <section class="services-section">
-            <div class="section-title reveal">
-                <span class="subtitle">what we do</span>
-                <span class="maintitle">ABOUT US</span>
-            </div>
-            <div class="services-grid">
-                <div class="service-item reveal">
-                    <div class="icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>High Performance</h3>
-                    <p>Sed ut perspiciatis unde omnis iste sit voluptatem accusantium doloremque laudantium, totam rem.</p>
-                </div>
-                <div class="service-item reveal">
-                    <div class="icon"><i class="fas fa-arrows-alt"></i></div>
-                    <h3>Drag & Drop</h3>
-                    <p>Sed ut perspiciatis unde omnis iste sit voluptatem accusantium doloremque laudantium, totam rem.</p>
-                </div>
-                <div class="service-item reveal">
-                    <div class="icon"><i class="fas fa-desktop"></i></div>
-                    <h3>Fully Responsive</h3>
-                    <p>Sed ut perspiciatis unde omnis iste sit voluptatem accusantium doloremque laudantium, totam rem.</p>
-                </div>
-            </div>
-        </section>
-
-
-
-        <section class="stats-section">
-    <div class="stats-container">
-        
-        <div class="stat-item">
-            <h2 class="stat-number">
-                <span class="counter" data-target="10">0</span>+
-            </h2>
-            <h3 class="stat-title">Years of Experience</h3>
-            <p class="stat-description">
-                Auctor ut varius sapien consequat. Amet dui egestas arcu in pulvinar posuere cursus ac. Mattis ut adipiscing mi laoreet ut.
-            </p>
-        </div>
-        
-        <div class="stat-item">
-            <h2 class="stat-number">
-                <span class="counter" data-target="15">0</span>+
-            </h2>
-            <h3 class="stat-title">Industry Awards Won</h3>
-            <p class="stat-description">
-                Auctor ut varius sapien consequat. Amet dui egestas arcu in pulvinar posuere cursus ac. Mattis ut adipiscing mi laoreet ut.
-            </p>
-        </div>
-        
-        <div class="stat-item">
-            <h2 class="stat-number">
-                <span class="counter" data-target="20">0</span>+
-            </h2>
-            <h3 class="stat-title">Cities Served</h3>
-            <p class="stat-description">
-                Auctor ut varius sapien consequat. Amet dui egestas arcu in pulvinar posuere cursus ac. Mattis ut adipiscing mi laoreet ut.
-            </p>
-        </div>
-
-    </div>
-</section>
 <style>
-    /* ==================================================
-  == CSS FOR THE STATS SECTION
-  ==================================================
-*/
+        /* Basic body styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: #111;
+            color: #fff;
+        }
 
-.stats-section {
-    /* Black background as requested */
-    background-color: #000000; 
-    padding: 80px 40px;
-    text-align: center;
-}
+        /* --- MOBILE-FIRST STYLES (Default) ---
+         On mobile, the image container is sticky at the TOP.
+        */
+        .portfolio-container {
+            display: flex;
+            flex-direction: column;
+        }
 
-.stats-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 30px; /* Adds space between items when they wrap */
-}
+        /* 1. Image Column (Sticky Top on Mobile) */
+        .portfolio-left-sticky {
+            display: block;
+            position: sticky;
+            top: 0;
+            /* On mobile, it's a 'header' block */
+            width: 100%;
+            height: 50vh; /* Takes top 50% of the screen */
+            background-color: #000;
+            z-index: 10; /* Stays on top */
+            border-bottom: 1px solid #333;
+        }
 
-.stat-item {
-    flex: 1; /* Each item will try to take equal space */
-    min-width: 280px; /* Ensures items don't get too small */
-    padding: 20px;
-}
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.stat-number {
-    /* This is the large number (e.g., 10+) */
-    font-size: 4.5rem; /* 72px */
-    font-weight: 700;
-    /* Color sampled from your image */
-    color: #BFA98E; 
-    margin: 0 0 10px 0;
-    /* Ensure font supports the '+' sign well */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
+        .portfolio-image {
+            position: absolute;
+            width: 90%; /* Use 90% of the container */
+            height: auto;
+            max-height: 90%;
+            object-fit: contain;
+            /* Fade transition */
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
 
-.stat-title {
-    /* This is the heading (e.g., Years of Experience) */
-    font-size: 1.25rem; /* 20px */
-    font-weight: 600;
-    color: #FFFFFF; /* White text */
-    margin: 0 0 15px 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
+        .portfolio-image.active {
+            opacity: 1;
+        }
 
-.stat-description {
-    /* This is the placeholder text */
-    font-size: 1rem; /* 16px */
-    color: #AAAAAA; /* Light gray text */
-    line-height: 1.6;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-</style>
+        /* 2. Text Column (Scrolls Underneath) */
+        .portfolio-right-scroll {
+            width: 100%;
+            /* This z-index ensures it scrolls 'under' the sticky header */
+            position: relative;
+            z-index: 5;
+        }
 
-<script>
-    // We wrap the code in a 'DOMContentLoaded' event listener
-    // to ensure the HTML elements are loaded before the script runs.
-    document.addEventListener("DOMContentLoaded", () => {
-        
-        const counters = document.querySelectorAll('.counter');
-        const statsSection = document.querySelector('.stats-section');
+        .portfolio-item {
+            /* On mobile, height is automatic, but with min-height */
+            min-height: 40vh; /* Give some breathing room */
+            padding: 40px 20px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #333;
+        }
 
-        // This function will be triggered when the section is visible
-        const startCounterAnimation = (entries, observer) => {
-            entries.forEach(entry => {
-                // Check if the section is intersecting (visible)
-                if (entry.isIntersecting) {
-                    counters.forEach(counter => {
-                        // Ensure we only animate each counter once
-                        if (!counter.classList.contains('animated')) {
-                            counter.classList.add('animated');
-                            
-                            const target = +counter.getAttribute('data-target');
-                            const duration = 2000; // 2 seconds
-                            const increment = target / (duration / 10); 
+        .portfolio-item h3 {
+            font-size: 0.9rem;
+            color: #888;
+            text-transform: uppercase;
+        }
 
-                            let current = 0;
+        .portfolio-item h2 {
+            font-size: 2.0rem; /* Slightly smaller for mobile */
+            margin: 10px 0;
+        }
 
-                            const updateCounter = () => {
-                                current += increment;
+        .view-project-link {
+            color: #00e0b0;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-                                if (current < target) {
-                                    counter.innerText = Math.ceil(current);
-                                    setTimeout(updateCounter, 10); // Run every 10ms
-                                } else {
-                                    counter.innerText = target; // Ensure it ends on the target
-                                }
-                            };
-                            updateCounter();
+
+        /* --- DESKTOP STYLES (Switches to Split-Screen) ---
+        */
+        @media (min-width: 769px) {
+            
+            .portfolio-container {
+                /* Change to split-screen row */
+                flex-direction: row;
+            }
+
+            /* 1. Image Column (Desktop) */
+            .portfolio-left-sticky {
+                flex: 1; /* Take up 50% of the width */
+                height: 100vh; /* Full viewport height */
+                border-bottom: none;
+                border-right: 1px solid #333;
+            }
+            
+            .portfolio-image {
+                width: 80%; /* Use 80% of the container */
+                max-height: 80%;
+            }
+
+            /* 2. Text Column (Desktop) */
+            .portfolio-right-scroll {
+                flex: 1; /* Take up the other 50% */
+            }
+
+            .portfolio-item {
+                /* Each text section fills the screen height */
+                height: 100vh;
+                min-height: 0; /* Reset mobile min-height */
+                padding: 0 5%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center; /* Center text vertically */
+                border-bottom: none;
+            }
+
+            .portfolio-item h2 {
+                font-size: 2.5rem; /* Back to larger size */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-container">
+
+        <div class="portfolio-left-sticky">
+            <div class="image-wrapper">
+                <img src="./pexels-sora-shimazaki-5926370.jpg" 
+                     class="portfolio-image active" 
+                     data-image="item-1">
+                <img src="./pexels-mikhail-nilov-7534804.jpg" 
+                     class="portfolio-image" 
+                     data-image="item-2">
+                <img src="./pexels-cottonbro-6153739.jpg" 
+                     class="portfolio-image" 
+                     data-image="item-3">
+                <img src="./pexels-tranmautritam-326518.jpg" 
+                     class="portfolio-image" 
+                     data-image="item-4">
+            </div>
+        </div>
+
+        <div class="portfolio-right-scroll">
+
+            <section class="portfolio-item" data-target="item-1">
+                <h3>Services</h3>
+                <h2>Web developement </h2>
+                <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab nam dolores tenetur voluptas dolore eaque iusto? Voluptates rem maiores porro.</h3>
+              
+            </section>
+
+            <section class="portfolio-item" data-target="item-2">
+                <h3>Services</h3>
+                <h2>App developement</h2>
+                <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet, necessitatibus. Consequuntur, eligendi! Non incidunt quaerat reprehenderit voluptatum sint alias eaque.</h3>
+                
+            </section>
+
+            <section class="portfolio-item" data-target="item-3">
+                <h3>Services </h3>
+                <h2>Artificial intelligence </h2>
+                <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, sequi assumenda tempora vitae sunt minima aperiam ad vero quidem! Cumque magni sapiente similique, voluptatibus voluptas quaerat animi error exercitationem debitis.</h3>
+                
+            </section>
+            
+            <section class="portfolio-item" data-target="item-4">
+                <h3>Services</h3>
+                <h2>UI & UX</h2>
+                <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem qui veniam consequatur, reprehenderit sapiente quidem molestias ullam! Hic, provident quia!</h3>
+                
+            </section>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // NOTE: The check for screen width is REMOVED.
+            // This script now runs on all screen sizes.
+
+            const textSections = document.querySelectorAll(".portfolio-item");
+            const images = document.querySelectorAll(".portfolio-image");
+
+            const options = {
+                root: null, 
+                rootMargin: "0px",
+                // This threshold works well for both mobile and desktop
+                threshold: 0.5 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetId = entry.target.getAttribute("data-target");
+
+                        // Hide all images
+                        images.forEach(img => {
+                            img.classList.remove("active");
+                        });
+
+                        // Show the target image
+                        const targetImage = document.querySelector(`.portfolio-image[data-image="${targetId}"]`);
+                        if (targetImage) {
+                            targetImage.classList.add("active");
                         }
-                    });
+                    }
+                });
+            }, options);
 
-                    // Stop observing once the animation has started
-                    observer.unobserve(statsSection);
-                }
+            // Observe each text section
+            textSections.forEach(section => {
+                observer.observe(section);
             });
-        };
-
-        // Create an Intersection Observer to watch when the section scrolls into view
-        const observer = new IntersectionObserver(startCounterAnimation, {
-            root: null, // observes intersections relative to the viewport
-            threshold: 0.1 // triggers when 10% of the element is visible
         });
+    </script>
 
-        // Start observing the stats section, if it exists
-        if (statsSection) {
-            observer.observe(statsSection);
-        }
-    });
-</script>
-<section id="faq">
 
-<div class="faq-container">
-    
-    <div class="faq-item">
-        <button class="faq-question">What are the benefits of the Premium plan?</button>
-        <div class="faq-answer">
-            <p>The Premium plan gives you unlimited access to all our exclusive content, an ad-free experience, priority support, and access to our members-only community forum. You also get early access to new features before anyone else.</p>
-        </div>
-    </div>
 
-    <div class="faq-item">
-        <button class="faq-question">How do I manage my subscription?</button>
-        <div class="faq-answer">
-            <p>You can easily manage your subscription by logging into your account and navigating to the "Billing" section. From there, you can upgrade, downgrade, or cancel your plan at any time. All changes will be reflected in your next billing cycle.</p>
-        </div>
-    </div>
-
-    <div class="faq-item">
-        <button class="faq-question">Can I cancel my membership at any time?</button>
-        <div class="faq-answer">
-            <p>Yes, absolutely. We believe in earning your business every month. You can cancel your membership at any time from your account settings with no hidden fees or penalties. Your access will continue until the end of your current billing period.</p>
-        </div>
-    </div>
-
-    <div class="faq-item">
-        <button class="faq-question">What payment methods do you accept?</button>
-        <div class="faq-answer">
-            <p>We accept all major credit cards, including Visa, Mastercard, and American Express. We also support payments through PayPal for your convenience. All transactions are processed through a secure, encrypted connection.</p>
-        </div>
-    </div>
-
-    <div class="faq-item">
-        <button class="faq-question">Is my personal data secure?</button>
-        <div class="faq-answer">
-            <p>Data security is our highest priority. We use industry-standard SSL encryption for all data transmission and store your information on secure, access-controlled servers. We never sell your personal data to third parties. You can read our full Privacy Policy for more details.</p>
-        </div>
-    </div>
-
-</div>
-</section>
-<style>
-    /* === PREMIUM FAQ SECTION STYLES === */
-
-/* --- The Main FAQ Container --- */
-.faq-container {
-    max-width: 800px;
-    margin: 40px auto; /* Added margin for spacing */
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid #333; /* Subtle border */
-}
-
-/* --- Individual FAQ Item --- */
-.faq-item {
-    border-bottom: 1px solid #333; /* Separator line */
-}
-
-.faq-item:last-child {
-    border-bottom: none;
-}
-
-/* --- The Question (Clickable Button) --- */
-.faq-question {
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    text-align: left;
-    padding: 24px 30px;
-    
-    /* Assumes 'Inter' font is loaded on the page */
-    font-family: inherit; 
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #FFFFFF; /* Bright white for the question */
-    
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-
-    /* For the + / - icon */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.faq-question:hover {
-    background-color: #1A1A1A; /* Subtle hover effect */
-}
-
-/* --- The Plus/Minus Icon --- */
-.faq-question::after {
-    content: '+';
-    font-size: 2rem;
-    font-weight: 300;
-    color: #D4AF37; /* Premium Gold Accent */
-    transition: transform 0.3s ease;
-}
-
-.faq-question.active::after {
-    content: '−'; /* Minus sign */
-    transform: rotate(180deg);
-}
-
-/* --- The Answer (Hidden by default) --- */
-.faq-answer {
-    max-height: 0; /* This is the trick to hide it */
-    overflow: hidden;
-    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-    
-    color: #B0B0B0; /* Answer text is slightly dimmer */
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.6;
-}
-
-/* This class is added by JavaScript */
-.faq-answer.active {
-    /* The 'scrollHeight' will be set by JS, but we need padding */
-    padding: 0 30px 24px 30px;
-}
-
-/* The <p> tag inside the answer */
-.faq-answer p {
-    margin: 0;
-}
-</style>
-<script>
-    // === PREMIUM FAQ ACCORDION SCRIPT ===
-
-const allFaqQuestions = document.querySelectorAll('.faq-question');
-
-allFaqQuestions.forEach(question => {
-    question.addEventListener('click', () => {
-        // Find the answer panel
-        const answer = question.nextElementSibling;
-
-        // Toggle the 'active' class on the button
-        question.classList.toggle('active');
-        
-        // Toggle the 'active' class on the answer
-        answer.classList.toggle('active');
-
-        // Set the max-height for the smooth transition
-        if (answer.classList.contains('active')) {
-            // Set max-height to the scroll height to show the content
-            answer.style.maxHeight = answer.scrollHeight + 'px';
-        } else {
-            // Set max-height to null (or '0') to hide it
-            answer.style.maxHeight = null;
-        }
-    });
-});
-</script>
 
 <!-- footer -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
