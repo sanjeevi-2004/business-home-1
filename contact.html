@@ -590,7 +590,7 @@ p, a, li, span, button, input, textarea {
                     <div class="slide-content">
                         <div class="slide-border-right"></div>
                         <div class="slide-border-bottom"></div>
-                        <h1>High Quality <br> Wordpress Theme</h1>
+                        <h1>Get In Touch <br>With Us</h1>
                     </div>
                 </div>
                 
@@ -611,7 +611,7 @@ p, a, li, span, button, input, textarea {
             <div class="side-menu-section side-menu-nav">
                 <h4>Navigation</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index-2.html">Home</a></li>
                     
                     <li><a href="services.html">Services</a></li>
                     <li><a href="about.html">About Us</a></li>
@@ -765,7 +765,6 @@ p, a, li, span, button, input, textarea {
 
 
 
-
 <section class="contact-section">
   <div class="container">
 
@@ -775,12 +774,12 @@ p, a, li, span, button, input, textarea {
 
     <form class="contact-form">
       <div class="input-row">
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="text" placeholder="Subject" />
+        <input id="name" type="text" placeholder="Name" />
+        <input id="email" type="email" placeholder="Email" />
+        <input id="subject" type="text" placeholder="Subject" />
       </div>
 
-      <textarea placeholder="Message"></textarea>
+      <textarea id="message" placeholder="Message"></textarea>
 
       <button type="submit" class="btn">Send Message</button>
     </form>
@@ -816,8 +815,9 @@ p, a, li, span, button, input, textarea {
     </div>
   </div>
 </section>
+
 <style>
-    /* ---------- GENERAL ---------- */
+/* ---------- GENERAL ---------- */
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -873,7 +873,7 @@ textarea {
 
 input:focus,
 textarea:focus {
-  border-bottom: 1px solid#D4AF37;
+  border-bottom: 1px solid #D4AF37;
 }
 
 textarea {
@@ -952,14 +952,25 @@ textarea {
     font-size: 36px;
   }
 }
-
 </style>
-<script>
-    document.querySelector(".contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-  alert("Message Sent Successfully!");
-});
 
+<script>
+document.querySelector(".contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  if (!name || !email || !subject || !message) {
+    alert("⚠ Please fill out all fields before submitting.");
+    return;
+  }
+
+  alert("✅ Message Sent Successfully!");
+  this.reset();
+});
 </script>
 
 
