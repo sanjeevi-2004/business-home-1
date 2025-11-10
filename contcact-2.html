@@ -214,7 +214,7 @@ p, a, li, span, button, input, textarea {
 }
 
 /* --- UPDATED: Hero Images to WebP --- */
-.slide-1 { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./about\ img.webp'); }
+.slide-1 { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./contct.webp'); }
 
 
 .slide-content {
@@ -563,17 +563,17 @@ p, a, li, span, button, input, textarea {
         <nav class="main-nav">
             <ul>
                 <li> 
-                    <a href="./index.html">Home </a>
-                    
+                    <a href="./index.html">Home</a>
+                   
                 </li>
                 
                 <li>
-                    <a href="./about.html">About Us</a>
+                    <a href="about-2.html">About Us</a>
                     </li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="./index.html#faq">FAQS</a></li>
+                <li><a href="services-2.html">Services</a></li>
+                <li><a href="./index-2.html#faq">FAQS</a></li>
                 
-                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./contact-2.html">Contact</a></li>
             </ul>
         </nav>
         <div class="header-icons">
@@ -593,10 +593,10 @@ p, a, li, span, button, input, textarea {
                         <h1>High Quality <br> Wordpress Theme</h1>
                     </div>
                 </div>
-               
+              
             </div>
             
-       
+          
         </section>
 
         </main>
@@ -611,12 +611,12 @@ p, a, li, span, button, input, textarea {
             <div class="side-menu-section side-menu-nav">
                 <h4>Navigation</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="index.html#faq">FAQS</a></li>
-                    <li><a href="./contact.html">Contact </a></li>
+                 
+                    <li><a href="index-2.html">Home </a></li>
+                    <li><a href="services-2.html">Services</a></li>
+                    <li><a href="about-2.html">About Us</a></li>
+                    <li><a href="index-2.html#faq">FAQS</a></li>
+                    <li><a href="./contcact-2.html">Contact </a></li>
                 </ul>
             </div>
             <div class="side-menu-section">
@@ -762,227 +762,205 @@ p, a, li, span, button, input, textarea {
 </script>
 
 
-<style>
-        /* Basic body styling */
-      
-
-        /* --- MOBILE-FIRST STYLES (Default) ---
-         On mobile, the image container is sticky at the TOP.
-        */
-        .portfolio-container {
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* 1. Image Column (Sticky Top on Mobile) */
-        .portfolio-left-sticky {
-            display: block;
-            position: sticky;
-            top: 0;
-            /* On mobile, it's a 'header' block */
-            width: 100%;
-            height: 50vh; /* Takes top 50% of the screen */
-            background-color: #000;
-            z-index: 10; /* Stays on top */
-            border-bottom: 1px solid #333;
-        }
-
-        .image-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .portfolio-image {
-            position: absolute;
-            width: 90%; /* Use 90% of the container */
-            height: auto;
-            max-height: 90%;
-            object-fit: contain;
-            /* Fade transition */
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .portfolio-image.active {
-            opacity: 1;
-        }
-
-        /* 2. Text Column (Scrolls Underneath) */
-        .portfolio-right-scroll {
-            width: 100%;
-            /* This z-index ensures it scrolls 'under' the sticky header */
-            position: relative;
-            z-index: 5;
-        }
-
-        .portfolio-item {
-            /* On mobile, height is automatic, but with min-height */
-            min-height: 40vh; /* Give some breathing room */
-            padding: 40px 20px;
-            box-sizing: border-box;
-            border-bottom: 1px solid #333;
-        }
-
-        .portfolio-item h3 {
-            font-size: 0.9rem;
-            color: #888;
-            text-transform: uppercase;
-        }
-
-        .portfolio-item h2 {
-            font-size: 2.0rem; /* Slightly smaller for mobile */
-            margin: 10px 0;
-        }
-
-        .view-project-link {
-            color: #00e0b0;
-            text-decoration: none;
-            font-weight: bold;
-        }
 
 
-        /* --- DESKTOP STYLES (Switches to Split-Screen) ---
-        */
-        @media (min-width: 769px) {
-            
-            .portfolio-container {
-                /* Change to split-screen row */
-                flex-direction: row;
-            }
-
-            /* 1. Image Column (Desktop) */
-            .portfolio-left-sticky {
-                flex: 1; /* Take up 50% of the width */
-                height: 100vh; /* Full viewport height */
-                border-bottom: none;
-                border-right: 1px solid #333;
-            }
-            
-            .portfolio-image {
-                width: 80%; /* Use 80% of the container */
-                max-height: 80%;
-            }
-
-            /* 2. Text Column (Desktop) */
-            .portfolio-right-scroll {
-                flex: 1; /* Take up the other 50% */
-            }
-
-            .portfolio-item {
-                /* Each text section fills the screen height */
-                height: 100vh;
-                min-height: 0; /* Reset mobile min-height */
-                padding: 0 5%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center; /* Center text vertically */
-                border-bottom: none;
-            }
-
-            .portfolio-item h2 {
-                font-size: 2.5rem; /* Back to larger size */
-            }
-        }
-    </style>
 
 
-    <div class="portfolio-container">
+<section class="contact-section">
+  <div class="container">
 
-        <div class="portfolio-left-sticky">
-            <div class="image-wrapper">
-                <img src="./abt.webp" 
-                     class="portfolio-image active" 
-                     data-image="item-1">
-                <img src="./legacy.webp" 
-                     class="portfolio-image" 
-                     data-image="item-2">
-                <img src="./mv.webp" 
-                     class="portfolio-image" 
-                     data-image="item-3">
-                <img src="./sv.webp" 
-                     class="portfolio-image" 
-                     data-image="item-4">
-            </div>
+    <h1 class="contact-title">
+      Looking for <span>interesting</span> team to work with? get in touch
+    </h1>
+
+    <form class="contact-form">
+      <div class="input-row">
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <input type="text" placeholder="Subject" />
+      </div>
+
+      <textarea placeholder="Message"></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+
+    <div class="contact-info-wrapper">
+
+      <div class="office-img">
+        <img src="./contact 2.webp" alt="Office" />
+      </div>
+
+      <div class="contact-details">
+        <div class="info-group">
+          <h4>Phone</h4>
+          <p>+91 985 214 456</p>
+          <p>+91 985 214 456</p>
         </div>
 
-        <div class="portfolio-right-scroll">
-
-            <section class="portfolio-item" data-target="item-1">
-                <h3>STACKLY</h3>
-                <h2>About </h2>
-                <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab nam dolores tenetur voluptas dolore eaque iusto? Voluptates rem maiores porro.</h3>
-              
-            </section>
-
-            <section class="portfolio-item" data-target="item-2">
-                <h3>Branding / Identity</h3>
-                <h2>Our legacy</h2>
-                <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet, necessitatibus. Consequuntur, eligendi! Non incidunt quaerat reprehenderit voluptatum sint alias eaque.</h3>
-                
-            </section>
-
-            <section class="portfolio-item" data-target="item-3">
-                <h3>Media </h3>
-                <h2>Mission And Vission </h2>
-                <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, sequi assumenda tempora vitae sunt minima aperiam ad vero quidem! Cumque magni sapiente similique, voluptatibus voluptas quaerat animi error exercitationem debitis.</h3>
-                
-            </section>
-            
-            <section class="portfolio-item" data-target="item-4">
-                <h3>Digital / Modern</h3>
-                <h2>Our projects</h2>
-                <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem qui veniam consequatur, reprehenderit sapiente quidem molestias ullam! Hic, provident quia!</h3>
-                
-            </section>
-
+        <div class="info-group">
+          <h4>Email</h4>
+          <p>hello@stackly.com</p>
+          <p>enquiry@stackly.com</p>
         </div>
+
+        <div class="info-group">
+          <h4>Address</h4>
+          <p>
+            1564 Mandan Road,<br />
+            Columbia, Missouri.
+          </p>
+        </div>
+      </div>
+
     </div>
+  </div>
+</section>
+<style>
+    /* ---------- GENERAL ---------- */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: #0e0e0e;
+  color: white;
+}
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            
-            // NOTE: The check for screen width is REMOVED.
-            // This script now runs on all screen sizes.
+.contact-section {
+  padding: 80px 10%;
+  background: #0e0e0e;
+}
 
-            const textSections = document.querySelectorAll(".portfolio-item");
-            const images = document.querySelectorAll(".portfolio-image");
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
 
-            const options = {
-                root: null, 
-                rootMargin: "0px",
-                // This threshold works well for both mobile and desktop
-                threshold: 0.5 
-            };
+/* ---------- TITLE ---------- */
+.contact-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  line-height: 1.3;
+}
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const targetId = entry.target.getAttribute("data-target");
+.contact-title span {
+  color: #D4AF37;
+}
 
-                        // Hide all images
-                        images.forEach(img => {
-                            img.classList.remove("active");
-                        });
+/* ---------- FORM ---------- */
+.contact-form {
+  width: 100%;
+  margin-bottom: 50px;
+}
 
-                        // Show the target image
-                        const targetImage = document.querySelector(`.portfolio-image[data-image="${targetId}"]`);
-                        if (targetImage) {
-                            targetImage.classList.add("active");
-                        }
-                    }
-                });
-            }, options);
+.input-row {
+  display: flex;
+  gap: 20px;
+}
 
-            // Observe each text section
-            textSections.forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
+input,
+textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-bottom: 1px solid #444;
+  background: transparent;
+  color: white;
+  outline: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-bottom: 1px solid#D4AF37;
+}
+
+textarea {
+  height: 90px;
+  margin-top: 25px;
+  resize: none;
+}
+
+/* ---------- BUTTON ---------- */
+.btn {
+  margin-top: 30px;
+  padding: 12px 28px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #D4AF37;
+  border-color: #D4AF37;
+}
+
+/* ---------- CONTACT INFO BLOCK ---------- */
+.contact-info-wrapper {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  align-items: stretch;
+}
+
+.office-img {
+  width: 65%;
+}
+
+.office-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact-details {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-group {
+  margin-bottom: 20px;
+}
+
+.info-group h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .input-row {
+    flex-direction: column;
+  }
+
+  .contact-info-wrapper {
+    flex-direction: column;
+  }
+
+  .office-img,
+  .contact-details {
+    width: 100%;
+  }
+
+  .contact-title {
+    font-size: 36px;
+  }
+}
+
+</style>
+<script>
+    document.querySelector(".contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  alert("Message Sent Successfully!");
+});
+
+</script>
 
 
 
@@ -999,12 +977,12 @@ p, a, li, span, button, input, textarea {
     <div class="footer-column footer-links">
       <h4>Main</h4>
       <ul>
-         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About us</a></li>
-        <li><a href="services.html">Services</a></li>
+         <li><a href="index-2.html">Home</a></li>
+        <li><a href="about-2.html">About us</a></li>
+        <li><a href="services-2.html">Services</a></li>
         
-        <li><a href="index.html#faq">FAQS</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index-1.html#faq">FAQS</a></li>
+        <li><a href="contcact-2.html">Contact</a></li>
       </ul>
     </div>
 
@@ -1190,8 +1168,6 @@ p, a, li, span, button, input, textarea {
   }
 }
 </style>
-
-
 
 
 

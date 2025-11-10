@@ -3,6 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly </title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="your-style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tower Theme - Responsive Replica</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -214,7 +228,7 @@ p, a, li, span, button, input, textarea {
 }
 
 /* --- UPDATED: Hero Images to WebP --- */
-.slide-1 { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./about\ img.webp'); }
+.slide-1 { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./services\ img.webp'); }
 
 
 .slide-content {
@@ -563,17 +577,17 @@ p, a, li, span, button, input, textarea {
         <nav class="main-nav">
             <ul>
                 <li> 
-                    <a href="./index.html">Home </a>
-                    
+                    <a href="./index.html">Home</a>
+                   
                 </li>
                 
                 <li>
-                    <a href="./about.html">About Us</a>
+                    <a href="about-2.html">About Us</a>
                     </li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="./index.html#faq">FAQS</a></li>
+                <li><a href="services-2.html">Services</a></li>
+                <li><a href="./index-2.html#faq">FAQS</a></li>
                 
-                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./contcact-2.html">Contact</a></li>
             </ul>
         </nav>
         <div class="header-icons">
@@ -596,7 +610,7 @@ p, a, li, span, button, input, textarea {
                
             </div>
             
-       
+            
         </section>
 
         </main>
@@ -611,12 +625,12 @@ p, a, li, span, button, input, textarea {
             <div class="side-menu-section side-menu-nav">
                 <h4>Navigation</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
                     
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="index.html#faq">FAQS</a></li>
-                    <li><a href="./contact.html">Contact </a></li>
+                    <li><a href="index-2.html">Home </a></li>
+                    <li><a href="services-2.html">Services</a></li>
+                    <li><a href="about-2.html">About Us</a></li>
+                    <li><a href="index-2.html#faq">FAQS</a></li>
+                    <li><a href="./contcact-2.html">Contact </a></li>
                 </ul>
             </div>
             <div class="side-menu-section">
@@ -762,227 +776,236 @@ p, a, li, span, button, input, textarea {
 </script>
 
 
+
+
+
 <style>
-        /* Basic body styling */
-      
 
-        /* --- MOBILE-FIRST STYLES (Default) ---
-         On mobile, the image container is sticky at the TOP.
-        */
-        .portfolio-container {
-            display: flex;
-            flex-direction: column;
-        }
+/* ============ MAIN CONTAINER ============ */
+.portfolio-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
 
-        /* 1. Image Column (Sticky Top on Mobile) */
-        .portfolio-left-sticky {
-            display: block;
-            position: sticky;
-            top: 0;
-            /* On mobile, it's a 'header' block */
-            width: 100%;
-            height: 50vh; /* Takes top 50% of the screen */
-            background-color: #000;
-            z-index: 10; /* Stays on top */
-            border-bottom: 1px solid #333;
-        }
+/* ========== Left Sticky Image Column ========== */
+.portfolio-left-sticky {
+    position: sticky;
+    left: 0;
+    top: 0;
+    width: 40vw;
+    height: 100vh;
+    background-color: #000;
+    border-right: 1px solid #333;
+    z-index: 10;
+}
 
-        .image-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+/* ✅ Responsive Image Wrapper */
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
 
-        .portfolio-image {
-            position: absolute;
-            width: 90%; /* Use 90% of the container */
-            height: auto;
-            max-height: 90%;
-            object-fit: contain;
-            /* Fade transition */
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
+/* ✅ Fully Responsive Images */
+.portfolio-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;   /* Maintain aspect ratio */
+    max-width: 100%;
+    max-height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.portfolio-image.active {
+    opacity: 1;
+}
 
-        .portfolio-image.active {
-            opacity: 1;
-        }
+/* ========== Right Horizontal Scroll Section ========== */
+.portfolio-right-scroll {
+    display: flex;
+    flex-direction: row;
+    width: 60vw;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+.portfolio-right-scroll::-webkit-scrollbar {
+    display: none;
+}
 
-        /* 2. Text Column (Scrolls Underneath) */
-        .portfolio-right-scroll {
-            width: 100%;
-            /* This z-index ensures it scrolls 'under' the sticky header */
-            position: relative;
-            z-index: 5;
-        }
+.portfolio-item {
+    min-width: 60vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5vw;
+    border-right: 1px solid #333;
+}
 
-        .portfolio-item {
-            /* On mobile, height is automatic, but with min-height */
-            min-height: 40vh; /* Give some breathing room */
-            padding: 40px 20px;
-            box-sizing: border-box;
-            border-bottom: 1px solid #333;
-        }
+.portfolio-item h3 { color: #888; }
+.portfolio-item h2 { font-size: 3rem; margin-bottom: 15px; }
 
-        .portfolio-item h3 {
-            font-size: 0.9rem;
-            color: #888;
-            text-transform: uppercase;
-        }
+/* --- ALWAYS VISIBLE ARROWS (BOTTOM CENTER) --- */
+.split-nav-arrows {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    z-index: 30;
+}
 
-        .portfolio-item h2 {
-            font-size: 2.0rem; /* Slightly smaller for mobile */
-            margin: 10px 0;
-        }
+.split-arrow-btn {
+    width: 55px;
+    height: 55px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s, transform 0.2s;
+}
 
-        .view-project-link {
-            color: #00e0b0;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.split-arrow-btn:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1);
+}
 
+.split-arrow-btn.disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
 
-        /* --- DESKTOP STYLES (Switches to Split-Screen) ---
-        */
-        @media (min-width: 769px) {
-            
-            .portfolio-container {
-                /* Change to split-screen row */
-                flex-direction: row;
-            }
+/* ======== MOBILE ADAPTATION ======== */
+@media (max-width: 768px) {
+    .portfolio-container {
+        flex-direction: column;
+        height: auto;
+    }
 
-            /* 1. Image Column (Desktop) */
-            .portfolio-left-sticky {
-                flex: 1; /* Take up 50% of the width */
-                height: 100vh; /* Full viewport height */
-                border-bottom: none;
-                border-right: 1px solid #333;
-            }
-            
-            .portfolio-image {
-                width: 80%; /* Use 80% of the container */
-                max-height: 80%;
-            }
+    .portfolio-left-sticky {
+        width: 100%;
+        height: 40vh;
+        position: sticky;
+    }
 
-            /* 2. Text Column (Desktop) */
-            .portfolio-right-scroll {
-                flex: 1; /* Take up the other 50% */
-            }
+    .portfolio-right-scroll {
+        width: 100%;
+        min-height: 60vh;
+    }
 
-            .portfolio-item {
-                /* Each text section fills the screen height */
-                height: 100vh;
-                min-height: 0; /* Reset mobile min-height */
-                padding: 0 5%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center; /* Center text vertically */
-                border-bottom: none;
-            }
+    .portfolio-item {
+        min-width: 100vw;
+    }
 
-            .portfolio-item h2 {
-                font-size: 2.5rem; /* Back to larger size */
-            }
-        }
-    </style>
+    .split-nav-arrows {
+        bottom: 40px;
+    }
 
+    .portfolio-image {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+</style>
 
-    <div class="portfolio-container">
+<div class="portfolio-container">
 
-        <div class="portfolio-left-sticky">
-            <div class="image-wrapper">
-                <img src="./abt.webp" 
-                     class="portfolio-image active" 
-                     data-image="item-1">
-                <img src="./legacy.webp" 
-                     class="portfolio-image" 
-                     data-image="item-2">
-                <img src="./mv.webp" 
-                     class="portfolio-image" 
-                     data-image="item-3">
-                <img src="./sv.webp" 
-                     class="portfolio-image" 
-                     data-image="item-4">
-            </div>
-        </div>
-
-        <div class="portfolio-right-scroll">
-
-            <section class="portfolio-item" data-target="item-1">
-                <h3>STACKLY</h3>
-                <h2>About </h2>
-                <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab nam dolores tenetur voluptas dolore eaque iusto? Voluptates rem maiores porro.</h3>
-              
-            </section>
-
-            <section class="portfolio-item" data-target="item-2">
-                <h3>Branding / Identity</h3>
-                <h2>Our legacy</h2>
-                <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet, necessitatibus. Consequuntur, eligendi! Non incidunt quaerat reprehenderit voluptatum sint alias eaque.</h3>
-                
-            </section>
-
-            <section class="portfolio-item" data-target="item-3">
-                <h3>Media </h3>
-                <h2>Mission And Vission </h2>
-                <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, sequi assumenda tempora vitae sunt minima aperiam ad vero quidem! Cumque magni sapiente similique, voluptatibus voluptas quaerat animi error exercitationem debitis.</h3>
-                
-            </section>
-            
-            <section class="portfolio-item" data-target="item-4">
-                <h3>Digital / Modern</h3>
-                <h2>Our projects</h2>
-                <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem qui veniam consequatur, reprehenderit sapiente quidem molestias ullam! Hic, provident quia!</h3>
-                
-            </section>
-
+    <div class="portfolio-left-sticky">
+        <div class="image-wrapper">
+            <img src="./web dev.webp" class="portfolio-image active" data-image="item-1">
+            <img src="./app dev.webp" class="portfolio-image" data-image="item-2">
+            <img src="./ai pic.webp" class="portfolio-image" data-image="item-3">
+            <img src="./ui.webp" class="portfolio-image" data-image="item-4">
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            
-            // NOTE: The check for screen width is REMOVED.
-            // This script now runs on all screen sizes.
+    <!-- ✅ ARROW BUTTONS BOTTOM CENTER -->
+    <div class="split-nav-arrows">
+        <button class="split-arrow-btn" id="slide-prev">❮</button>
+        <button class="split-arrow-btn" id="slide-next">❯</button>
+    </div>
 
-            const textSections = document.querySelectorAll(".portfolio-item");
-            const images = document.querySelectorAll(".portfolio-image");
+    <div class="portfolio-right-scroll">
+        <section class="portfolio-item" data-target="item-1">
+            <h3>STACKLY</h3>
+            <h2>Web Developement</h2>
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+        </section>
 
-            const options = {
-                root: null, 
-                rootMargin: "0px",
-                // This threshold works well for both mobile and desktop
-                threshold: 0.5 
-            };
+        <section class="portfolio-item" data-target="item-2">
+            <h3>STACKLY</h3>
+            <h2>App Developement</h2>
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+        </section>
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const targetId = entry.target.getAttribute("data-target");
+        <section class="portfolio-item" data-target="item-3">
+            <h3>STACKLY</h3>
+            <h2>Artificial Intelligence</h2>
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+        </section>
 
-                        // Hide all images
-                        images.forEach(img => {
-                            img.classList.remove("active");
-                        });
+        <section class="portfolio-item" data-target="item-4">
+            <h3>STACKLY</h3>
+            <h2>UI & UX</h2>
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+        </section>
+    </div>
+</div>
 
-                        // Show the target image
-                        const targetImage = document.querySelector(`.portfolio-image[data-image="${targetId}"]`);
-                        if (targetImage) {
-                            targetImage.classList.add("active");
-                        }
-                    }
-                });
-            }, options);
 
-            // Observe each text section
-            textSections.forEach(section => {
-                observer.observe(section);
-            });
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const scrollContainer = document.querySelector(".portfolio-right-scroll");
+    const textSections = document.querySelectorAll(".portfolio-item");
+    const images = document.querySelectorAll(".portfolio-image");
+
+    /* ---- OBSERVER FOR IMAGE FADE ---- */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const targetId = entry.target.getAttribute("data-target");
+
+                images.forEach(img => img.classList.remove("active"));
+                document
+                    .querySelector(`.portfolio-image[data-image="${targetId}"]`)
+                    .classList.add("active");
+            }
         });
-    </script>
+    }, { root: scrollContainer, threshold: 0.5 });
+
+    textSections.forEach(section => observer.observe(section));
+
+    /* ---- ARROW BUTTON LOGIC ---- */
+    const prevBtn = document.getElementById("slide-prev");
+    const nextBtn = document.getElementById("slide-next");
+
+    nextBtn.addEventListener("click", () => {
+        scrollContainer.scrollBy({ left: scrollContainer.clientWidth, behavior: "smooth" });
+    });
+
+    prevBtn.addEventListener("click", () => {
+        scrollContainer.scrollBy({ left: -scrollContainer.clientWidth, behavior: "smooth" });
+    });
+});
+</script>
+
 
 
 
@@ -999,12 +1022,12 @@ p, a, li, span, button, input, textarea {
     <div class="footer-column footer-links">
       <h4>Main</h4>
       <ul>
-         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About us</a></li>
-        <li><a href="services.html">Services</a></li>
+         <li><a href="index-2.html">Home</a></li>
+        <li><a href="about-2.html">About us</a></li>
+        <li><a href="services-2.html">Services</a></li>
         
-        <li><a href="index.html#faq">FAQS</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index-2.html#faq">FAQS</a></li>
+        <li><a href="contact-2.html">Contact</a></li>
       </ul>
     </div>
 
@@ -1190,8 +1213,6 @@ p, a, li, span, button, input, textarea {
   }
 }
 </style>
-
-
 
 
 

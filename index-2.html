@@ -563,19 +563,19 @@ p, a, li, span, button, input, textarea {
         <nav class="main-nav">
             <ul>
                 <li> 
-                    <a href="./index.html">Home</a>
+                    <a href="./index-2.html">Home </a>
                     <ul class="dropdown">
-                        <li><a href="./index-2.html">Home 2</a></li>
+                        <li><a href="./index.html">Home 1</a></li>
                     </ul>
                 </li>
                 
                 <li>
-                    <a href="about.html">About Us</a>
+                    <a href="about-2.html">About Us</a>
                     </li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="./index.html#faq">FAQS</a></li>
+                <li><a href="services-2.html">Services</a></li>
+                <li><a href="./index-2.html#faq">FAQS</a></li>
                 
-                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./contcact-2.html">Contact</a></li>
             </ul>
         </nav>
         <div class="header-icons">
@@ -620,12 +620,13 @@ p, a, li, span, button, input, textarea {
             <div class="side-menu-section side-menu-nav">
                 <h4>Navigation</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Home 1</a></li>
                     <li><a href="index-2.html">Home 2</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="index.html#faq">FAQS</a></li>
-                    <li><a href="./contact.html">Contact </a></li>
+                    
+                    <li><a href="services-2.html">Services</a></li>
+                    <li><a href="about-2.html">About Us</a></li>
+                    <li><a href="index-2.html#faq">FAQS</a></li>
+                    <li><a href="./contcact-2.html">Contact </a></li>
                 </ul>
             </div>
             <div class="side-menu-section">
@@ -770,287 +771,6 @@ p, a, li, span, button, input, textarea {
 });
 </script>
 
-<style>
-/* --- MAIN CONTAINER --- */
-.animated-split-container {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-}
-
-/* --- EACH SLIDE --- */
-.split-slide-full {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-/* Reversed slide: image on left, text on right */
-.split-slide-full.layout-reversed {
-    flex-direction: row-reverse;
-}
-
-/* --- PANE STYLES --- */
-.split-pane {
-    width: 50%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.image-pane {
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-.image-pane::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.25);
-    pointer-events: none;
-}
-
-/* --- TEXT SIDE --- */
-.text-pane {
-    background-color: #000;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 4rem;
-    box-sizing: border-box;
-    text-align: left;
-}
-
-/* Mirrored layout for reversed slides */
-.split-slide-full.layout-reversed .text-pane {
-    background-color: #000;
-    text-align: left;
-    padding: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-/* --- TEXT CONTENT --- */
-.split-left-content {
-    max-width: 500px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
-}
-
-.split-slide-full.active .split-left-content {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.split-left-content h3 {
-    font-size: 1rem;
-    color: #aaa;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.split-left-content h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-}
-
-.split-view-btn {
-    display: inline-block;
-    text-decoration: none;
-    color: #fff;
-    border: 1px solid #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 500;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.split-view-btn:hover {
-    background-color: #fff;
-    color: #000;
-}
-
-/* --- HEADER --- */
-.split-header {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    right: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.2rem;
-    z-index: 5;
-    color: #fff;
-}
-
-.split-logo {
-    font-weight: bold;
-}
-
-.split-hamburger {
-    cursor: pointer;
-}
-
-/* --- DOT NAVIGATION --- */
-.split-nav-dots {
-    position: absolute;
-    left: 50%;
-    margin-left: -40px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    z-index: 20;
-}
-
-.split-dot {
-    width: 10px;
-    height: 10px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.split-dot.active {
-    background-color: #ffffff;
-}
-
-/* --- ALWAYS VISIBLE ARROWS (BOTTOM CENTER) --- */
-.split-nav-arrows {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    z-index: 30;
-}
-
-.split-arrow-btn {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.3s, opacity 0.3s;
-}
-
-.split-arrow-btn:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.split-arrow-btn.disabled {
-    opacity: 0.2;
-    cursor: not-allowed;
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-/* --- RESPONSIVE STYLING --- */
-@media (max-width: 1024px) {
-    .split-left-content h1 {
-        font-size: 2.8rem;
-    }
-    .text-pane {
-        padding: 3rem;
-    }
-}
-
-/* ✅ MOBILE / TABLET STACKED DESIGN — TEXT TOP + IMAGE BOTTOM */
-@media (max-width: 768px) {
-    .split-slide-full {
-        flex-direction: column !important;
-    }
-
-    .split-pane {
-        width: 100%;
-        height: 50%;
-    }
-
-    /* ✅ TEXT AT TOP */
-    .text-pane {
-        order: 1 !important;
-        padding: 2rem;
-        text-align: center !important;
-        align-items: center !important;
-    }
-
-    /* ✅ IMAGE BOTTOM */
-    .image-pane {
-        order: 2 !important;
-    }
-
-    .split-left-content {
-        max-width: 100%;
-    }
-
-    .split-left-content h1 {
-        font-size: 2rem;
-    }
-
-    .split-nav-arrows {
-        bottom: 20px;
-        flex-direction: row;
-        gap: 15px;
-    }
-
-    .split-arrow-btn {
-        width: 45px;
-        height: 45px;
-    }
-
-    .split-nav-dots {
-        bottom: 70px;
-        left: 50%;
-        transform: translateX(-50%);
-        flex-direction: row;
-        gap: 10px;
-    }
-}
-
-/* SMALL MOBILE */
-@media (max-width: 480px) {
-    .split-left-content h1 {
-        font-size: 1.6rem;
-    }
-    .split-view-btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-    }
-    .split-header {
-        top: 20px;
-        left: 20px;
-        right: 20px;
-        font-size: 1rem;
-    }
-}
-</style>
-
 
 
 <section class="animated-split-container">
@@ -1060,7 +780,6 @@ p, a, li, span, button, input, textarea {
             <div class="split-left-content">
                 <h3>Our Services</h3>
                 <h1>Web Developement</h1>
-               
             </div>
         </div>
         <div class="split-pane image-pane"
@@ -1073,7 +792,6 @@ p, a, li, span, button, input, textarea {
             <div class="split-left-content">
                 <h3>Our Services</h3>
                 <h1>App Developement</h1>
-                
             </div>
         </div>
         <div class="split-pane image-pane"
@@ -1086,7 +804,6 @@ p, a, li, span, button, input, textarea {
             <div class="split-left-content">
                 <h3>Our Services</h3>
                 <h1>Artificial Intelligence</h1>
-                
             </div>
         </div>
         <div class="split-pane image-pane"
@@ -1097,11 +814,251 @@ p, a, li, span, button, input, textarea {
     <div class="split-nav-dots" id="split-nav-dots"></div>
 
     <div class="split-nav-arrows">
-        <div class="split-arrow-btn split-arrow-up"><i class="fas fa-arrow-up"></i></div>
-        <div class="split-arrow-btn split-arrow-down"><i class="fas fa-arrow-down"></i></div>
+        <div class="split-arrow-btn split-arrow-left"><i class="fas fa-arrow-left"></i></div>
+        <div class="split-arrow-btn split-arrow-right"><i class="fas fa-arrow-right"></i></div>
     </div>
 </section>
+<style>
+        
 
+        * {
+            box-sizing: border-box;
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .animated-split-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- EACH SLIDE --- */
+        .split-slide-full {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            /* This transition works for any transform (X or Y) */
+            transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        /* Reversed slide: image on left, text on right */
+        .split-slide-full.layout-reversed {
+            flex-direction: row-reverse;
+        }
+
+        /* --- PANE STYLES --- */
+        .split-pane {
+            width: 50%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-pane {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .image-pane::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.25);
+            pointer-events: none;
+        }
+
+        /* --- TEXT SIDE --- */
+        .text-pane {
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem;
+            text-align: left;
+        }
+
+        /* Mirrored layout for reversed slides */
+        .split-slide-full.layout-reversed .text-pane {
+            align-items: flex-start;
+        }
+
+        /* --- TEXT CONTENT --- */
+        .split-left-content {
+            max-width: 500px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
+        }
+
+        .split-slide-full.active .split-left-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .split-left-content h3 {
+            font-size: 1rem;
+            color: #aaa;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0; /* Added */
+        }
+
+        .split-left-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            margin-top: 0; /* Added */
+        }
+
+        /* --- HEADER --- */
+        .split-header {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            right: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2rem;
+            z-index: 5;
+            color: #fff;
+        }
+
+        /* --- DOT NAVIGATION (HORIZONTAL) --- */
+       /* (This is the old rule to remove) */
+        .split-nav-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: row; /* Changed to row */
+            gap: 12px;
+            z-index: 30;
+        }
+        .split-dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .split-dot.active {
+            background-color: #ffffff;
+        }
+
+        /* --- ARROWS (HORIZONTAL) --- */
+        .split-nav-arrows {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: row; /* Changed to row */
+            align-items: center;
+            gap: 15px;
+            z-index: 30;
+        }
+
+        .split-arrow-btn {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s, opacity 0.3s;
+        }
+
+        .split-arrow-btn:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .split-arrow-btn.disabled {
+            opacity: 0.2;
+            cursor: not-allowed;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        /* --- RESPONSIVE STYLING --- */
+        @media (max-width: 1024px) {
+            .split-left-content h1 {
+                font-size: 2.8rem;
+            }
+            .text-pane {
+                padding: 3rem;
+            }
+        }
+
+        /* MOBILE / TABLET STACKED DESIGN */
+        @media (max-width: 768px) {
+            .split-slide-full {
+                flex-direction: column !important; /* Stack text/image */
+            }
+
+            .split-pane {
+                width: 100%;
+                height: 50%;
+            }
+
+            .text-pane {
+                order: 1 !important; /* Text at top */
+                padding: 2rem;
+                text-align: center !important;
+                align-items: center !important;
+            }
+
+            .image-pane {
+                order: 2 !important; /* Image at bottom */
+            }
+
+            .split-left-content {
+                max-width: 100%;
+            }
+
+            .split-left-content h1 {
+                font-size: 2rem;
+            }
+
+            .split-nav-arrows {
+                bottom: 20px;
+            }
+
+            .split-nav-dots {
+                bottom: 70px; /* Move dots up to make space for arrows */
+                top: auto; /* Ensure 'bottom' property works */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .split-left-content h1 {
+                font-size: 1.6rem;
+            }
+            .split-header {
+                top: 20px;
+                left: 20px;
+                right: 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
 
 <script>
     // JavaScript for Animated Split Slide
@@ -1109,8 +1066,11 @@ p, a, li, span, button, input, textarea {
     document.addEventListener('DOMContentLoaded', function() {
         const slides = document.querySelectorAll('.split-slide-full');
         const navDotsContainer = document.getElementById('split-nav-dots');
-        const arrowUp = document.querySelector('.split-arrow-up');
-        const arrowDown = document.querySelector('.split-arrow-down');
+        
+        // ✅ MODIFIED: Selectors changed to left/right
+        const arrowLeft = document.querySelector('.split-arrow-left');
+        const arrowRight = document.querySelector('.split-arrow-right');
+        
         let currentSlide = 0;
 
         // Create navigation dots
@@ -1126,7 +1086,8 @@ p, a, li, span, button, input, textarea {
 
         function updateSlidePosition() {
             slides.forEach((slide, index) => {
-                slide.style.transform = `translateY(${(index - currentSlide) * 100}%)`;
+                // ✅ MODIFIED: Changed translateY to translateX
+                slide.style.transform = `translateX(${(index - currentSlide) * 100}%)`;
                 slide.classList.toggle('active', index === currentSlide);
             });
             navDots.forEach((dot, index) => {
@@ -1136,8 +1097,9 @@ p, a, li, span, button, input, textarea {
         }
 
         function updateArrowState() {
-            arrowUp.classList.toggle('disabled', currentSlide === 0);
-            arrowDown.classList.toggle('disabled', currentSlide === slides.length - 1);
+            // ✅ MODIFIED: Changed arrowUp/arrowDown to arrowLeft/arrowRight
+            arrowLeft.classList.toggle('disabled', currentSlide === 0);
+            arrowRight.classList.toggle('disabled', currentSlide === slides.length - 1);
         }
 
         function goToSlide(index) {
@@ -1146,13 +1108,14 @@ p, a, li, span, button, input, textarea {
             updateSlidePosition();
         }
 
-        arrowUp.addEventListener('click', () => {
+        // ✅ MODIFIED: Event listeners updated to left/right
+        arrowLeft.addEventListener('click', () => {
             if (currentSlide > 0) {
                 goToSlide(currentSlide - 1);
             }
         });
 
-        arrowDown.addEventListener('click', () => {
+        arrowRight.addEventListener('click', () => {
             if (currentSlide < slides.length - 1) {
                 goToSlide(currentSlide + 1);
             }
@@ -1591,12 +1554,12 @@ allFaqQuestions.forEach(question => {
     <div class="footer-column footer-links">
       <h4>Main</h4>
       <ul>
-         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About us</a></li>
-        <li><a href="services.html">Services</a></li>
+         <li><a href="index-2.html">Home</a></li>
+        <li><a href="about-2.html">About us</a></li>
+        <li><a href="services-2.html">Services</a></li>
         
-        <li><a href="index.html#faq">FAQS</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index-2.html#faq">FAQS</a></li>
+        <li><a href="contcact-2.html">Contact</a></li>
       </ul>
     </div>
 

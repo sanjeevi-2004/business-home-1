@@ -3,6 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly </title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="your-style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tower Theme - Responsive Replica</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,495 +26,573 @@
     <link rel="stylesheet" href="your-style.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
-        /* ------------------------- */
-        /* --- 1. General Styles --- */
-        /* ------------------------- */
-        :root {
-            --ease-out-cubic: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-            /* Font system based on header styles */
-            --font-family: 'Montserrat', sans-serif;
-            --font-weight-base: 500;
-            --font-weight-heading: 700;
-            --letter-spacing-base: 0.5px;
-            --letter-spacing-nav: 1px;
-        }
+      /* ------------------------- */
+/* --- 1. General Styles --- */
+/* ------------------------- */
+:root {
+    --ease-out-cubic: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    /* Font system based on header styles */
+    --font-family: 'Montserrat', sans-serif;
+    --font-weight-base: 500;
+    --font-weight-heading: 700;
+    --letter-spacing-base: 0.5px;
+    --letter-spacing-nav: 1px;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
 
-        body {
-            font-family: var(--font-family);
-            font-weight: var(--font-weight-base);
-            letter-spacing: var(--letter-spacing-base);
-            background-color: #111;
-            color: #fff;
-            overflow-x: hidden;
-        }
+body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-base);
+    letter-spacing: var(--letter-spacing-base);
+    background-color: #111;
+    color: #fff;
+    overflow-x: hidden;
+}
 
-        a { text-decoration: none; color: inherit; }
-        ul { list-style-type: none; }
+a { text-decoration: none; color: inherit; }
+ul { list-style-type: none; }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s var(--ease-out-cubic), transform 0.8s var(--ease-out-cubic);
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s var(--ease-out-cubic), transform 0.8s var(--ease-out-cubic);
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        /* --- Global typography to match header --- */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-family);
-            font-weight: var(--font-weight-heading);
-            letter-spacing: var(--letter-spacing-nav);
-            text-transform: uppercase;
-            margin: 0 0 0.5rem 0;
-        }
+/* --- Global typography to match header --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-heading);
+    letter-spacing: var(--letter-spacing-nav);
+    text-transform: uppercase;
+    margin: 0 0 0.5rem 0;
+}
 
-        p, a, li, span, button, input, textarea {
-            font-family: var(--font-family);
-            font-weight: var(--font-weight-base);
-            letter-spacing: var(--letter-spacing-base);
-        }
+p, a, li, span, button, input, textarea {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-base);
+    letter-spacing: var(--letter-spacing-base);
+}
 
-        /* ------------------------- */
-        /* --- 2. Header --- */
-        /* ------------------------- */
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 40px;
-            z-index: 1000;
-            background-color: transparent;
-            transition: padding 0.4s ease, background-color 0.4s ease;
-        }
+/* ------------------------- */
+/* --- 2. Header --- */
+/* ------------------------- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 40px;
+    z-index: 1000;
+    background-color: transparent;
+    transition: padding 0.4s ease, background-color 0.4s ease;
+}
 
-        .main-header.scrolled {
-            padding: 15px 40px;
-            background-color: rgba(10, 10, 10, 0.9);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
+.main-header.scrolled {
+    padding: 15px 40px;
+    background-color: rgba(10, 10, 10, 0.9);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
 
-    .logo { font-size: 28px; font-weight: var(--font-weight-heading); }
-        .main-nav { display: flex; } /* Changed from display: block to flex for ul */
-        .main-nav ul { display: flex; }
-        .main-nav ul li { position: relative; margin: 0 15px; }
+/* --- UPDATED: Logo CSS (replaces old .logo rule) --- */
+.logo img {
+    height: 40px; /* Adjust this height to fit your logo */
+    width: auto;
+    transition: height 0.4s ease;
+}
+/* --- ADDED: Logo shrink on scroll --- */
+.main-header.scrolled .logo img {
+    height: 30px; /* Smaller height when scrolled */
+}
 
-        .main-nav ul li a {
-            padding: 20px 5px;
-            font-size: 13px;
-            font-weight: var(--font-weight-base);
-            letter-spacing: var(--letter-spacing-nav);
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
-        .main-nav ul li a:hover { color: #ccc; }
+.main-nav { display: flex; } 
+.main-nav ul { display: flex; }
+.main-nav ul li { position: relative; margin: 0 15px; }
 
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: -15px;
-            background-color: #222;
-            padding: 15px;
-            min-width: 220px;
-            border-top: 2px solid #fff;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(15px);
-            transition: all 0.4s var(--ease-out-cubic);
-            z-index: 1001; /* Ensure dropdown is above content */
-        }
-        
-        .main-nav ul li:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+.main-nav ul li a {
+    padding: 20px 5px;
+    font-size: 13px;
+    font-weight: var(--font-weight-base);
+    letter-spacing: var(--letter-spacing-nav);
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+.main-nav ul li a:hover { color: #ccc; }
 
-        .dropdown li { margin: 0; padding: 8px 0; }
-        .dropdown li a { font-size: 13px; text-transform: none; padding: 0; }
-        .header-icons { display: flex; align-items: center; }
-        .header-icons a, .header-icons .hamburger-menu { font-size: 16px; margin-left: 20px; cursor: pointer; }
+/* --- Premium Dropdown Style --- */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: -15px;
+    background-color: rgba(30, 30, 30, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.4s var(--ease-out-cubic);
+    z-index: 1001;
+    overflow: hidden;
+}
 
-        /* ------------------------- */
-        /* --- 3. Hero Slider --- */
-        /* ------------------------- */
-        .hero-slider {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-        }
+.main-nav ul li:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
 
-        .slides-container {
-            display: flex;
-            width: 200%;
-            height: 100%;
-            transition: transform 1s var(--ease-out-cubic);
-        }
-        
-        .slide {
-            width: 100vw;
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .slide-1 { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./pexels-olly-845451.jpg'); }
-   
+.dropdown li { 
+    margin: 0; 
+    padding: 0;
+}
 
-        .slide-content {
-            text-align: center;
-            padding: 30px 50px;
-            border: 2px solid rgba(255, 255, 255, 0);
-            position: relative;
-        }
-        .slide-content::before, .slide-content::after {
-            content: '';
-            position: absolute;
-            background-color: #fff;
-            transition: transform 1s var(--ease-out-cubic);
-        }
-        .slide-content::before { top: 0; left: 0; width: 100%; height: 2px; transform: scaleX(0); }
-        .slide-content::after { top: 0; left: 0; width: 2px; height: 100%; transform: scaleY(0); }
-        
-        .slide.active .slide-content::before { transform: scaleX(1); transition-delay: 0.2s; }
-        .slide.active .slide-content::after { transform: scaleY(1); transition-delay: 0.2s; }
-        .slide.active .slide-border-right, .slide.active .slide-border-bottom { transform: scale(1); transition-delay: 0.2s; }
-        
-        .slide-border-right, .slide-border-bottom {
-            position: absolute;
-            background-color: #fff;
-            transform: scale(0);
-            transition: transform 1s var(--ease-out-cubic);
-        }
-        .slide-border-right { top: 0; right: 0; width: 2px; height: 100%; transform-origin: top; }
-        .slide-border-bottom { bottom: 0; left: 0; width: 100%; height: 2px; transform-origin: right; }
-        
-        .slide-content h1 {
-            font-size: 48px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease 0.8s, transform 0.8s ease 0.8s, font-size 0.4s ease;
-        }
-        .slide.active .slide-content h1 {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .slider-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background-color: rgba(0, 0, 0, 0.3);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            font-size: 20px;
-            opacity: 0;
-            transition: all 0.4s ease;
-        }
-        .hero-slider:hover .slider-nav { opacity: 1; }
-        .slider-nav.prev { left: 30px; }
-        .slider-nav.next { right: 30px; }
-        .slider-nav span {
-            position: absolute;
-            font-size: 12px;
-            font-weight: bold;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-        .slider-nav.prev span { right: 120%; }
-        .slider-nav.next span { left: 120%; }
-        .slider-nav:hover span { opacity: 1; }
-        
-        /* ------------------------- */
-        /* --- 4. Side Menu Panel --- */
-        /* ------------------------- */
-        .side-menu {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 350px;
-            height: 100vh;
-            background-color: #1a1a1a;
-            z-index: 2000;
-            padding: 40px;
-            transform: translateX(100%);
-            transition: transform 0.6s var(--ease-out-cubic), width 0.6s var(--ease-out-cubic);
-        }
-        .side-menu.active { transform: translateX(0); }
-        .side-menu-header { display: flex; justify-content: flex-end; margin-bottom: 40px; }
-        .close-btn { font-size: 24px; cursor: pointer; }
-        .side-menu-content h4 { font-size: 12px; color: #888; margin-bottom: 10px; text-transform: uppercase; }
-        .side-menu-content p, .side-menu-content a { color: #ccc; line-height: 1.6; font-size: 14px; }
-        .side-menu-section { margin-bottom: 30px; }
-        .side-menu-nav ul li { padding: 10px 0; border-bottom: 1px solid #333; }
+.dropdown li a {
+    font-size: 13px;
+    text-transform: none;
+    display: block;
+    padding: 12px 20px;
+    color: #ccc;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-        /* ------------------------- */
-        /* --- 5. Services Section --- */
-        /* ------------------------- */
-        .services-section {
-            padding: 120px 50px;
-            text-align: center;
-            background-color: #111; /* Changed from #fff */
-            color: #fff;             /* Changed from #333 */
-            transition: padding 0.4s ease;
-        }
-        .section-title span { display: block; }
-        .section-title .subtitle { 
-            font-size: 14px; 
-            color: #ccc; /* Changed from #777 */
-        } 
-        .section-title .maintitle { 
-            font-size: 32px; 
-            font-weight: bold; 
-            margin-bottom: 60px; 
-            /* This will inherit the new color: #fff */
-        }
-        .services-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            transition: flex-direction 0s ease; /* Prevent animation on direction change */
-        }
-        .service-item { flex: 1; min-width: 250px; padding: 20px; }
-        .service-item .icon { 
-            font-size: 40px; 
-            margin-bottom: 20px; 
-            color: #bbb; /* Changed from #555 */
-        }
-        .service-item h3 { 
-            font-size: 16px; 
-            margin-bottom: 15px; 
-            text-transform: uppercase; 
-            /* This will inherit the new color: #fff */
-        }
-        .service-item p { 
-            font-size: 14px; 
-            color: #ccc; /* Changed from #666 */
-            line-height: 1.7; 
-        }
-
-        .service-item:nth-child(2) { transition-delay: 0.2s; }
-        .service-item:nth-child(3) { transition-delay: 0.4s; }
-
-        
-        /* --------------------------------- */
-        /* --- 6. RESPONSIVE MEDIA QUERIES --- */
-        /* --------------------------------- */
-
-        /* --- Tablet (e.g., iPads) --- */
-        @media (max-width: 992px) {
-            .main-nav {
-                display: none; /* Hide main navigation links */
-            }
-
-            .main-header {
-                padding: 20px 30px;
-            }
-            .main-header.scrolled {
-                padding: 15px 30px;
-            }
-
-            .slide-content h1 {
-                font-size: 36px; /* Smaller font for hero */
-            }
-
-            .services-section {
-                padding: 100px 30px;
-            }
-        }
-
-        /* --- Mobile (e.g., iPhones, Android) --- */
-        @media (max-width: 768px) {
-            .main-header {
-                padding: 20px;
-            }
-            .main-header.scrolled {
-                padding: 15px 20px;
-            }
-            
-            .header-icons a, .header-icons .hamburger-menu {
-                margin-left: 15px; /* Reduce spacing between icons */
-            }
-
-            .slide-content {
-                padding: 20px 30px; /* Smaller padding for content box */
-            }
-            .slide-content h1 {
-                font-size: 28px; /* Even smaller font for mobile */
-            }
-
-            .slider-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
-            .slider-nav.prev { left: 15px; }
-            .slider-nav.next { right: 15px; }
-            .slider-nav span { display: none; } /* Hide PREV/NEXT text */
+.dropdown li a:hover {
+    background-color: #333;
+    color: #fff;
+}
 
 
-            .side-menu {
-                width: 90vw; /* Make side menu wider on mobile */
-                padding: 30px;
-            }
+.header-icons { display: flex; align-items: center; }
+.header-icons a, .header-icons .hamburger-menu { font-size: 16px; margin-left: 20px; cursor: pointer; }
 
-            .services-section {
-                padding: 80px 20px;
-            }
-            
-            .services-grid {
-                flex-direction: column; /* Stack services vertically */
-                gap: 20px;
-            }
-            
-            .service-item p {
-                max-width: 400px; /* Constrain text width for readability */
-                margin: 0 auto;
-            }
-        }
+.header-icons .hamburger-menu { 
+    display: none; 
+}
 
-        /* ------------------------- */
-        /* --- 7. Search Overlay --- */
-        /* ------------------------- */
-        .search-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(10, 10, 10, 0.95);
-            z-index: 9998; /* Just below header */
-            
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column; /* Stack form and results */
+.header-login-link {
+    font-size: 13px;
+    font-weight: var(--font-weight-base);
+    letter-spacing: var(--letter-spacing-nav);
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+.header-login-link:hover {
+    color: #ccc;
+}
 
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(1.1);
-            transition: opacity 0.4s var(--ease-out-cubic), visibility 0.4s var(--ease-out-cubic), transform 0.4s var(--ease-out-cubic);
-        }
 
-        .search-overlay.active {
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1);
-            z-index: 1001; /* Above header when active */
-        }
+/* ------------------------- */
+/* --- 3. Hero Slider --- */
+/* ------------------------- */
+.hero-slider {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
 
-        .search-overlay-close {
-            position: absolute;
-            top: 40px;
-            right: 40px;
-            font-size: 40px;
-            color: #fff;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .search-overlay-close:hover {
-            transform: rotate(90deg);
-        }
+.slides-container {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    transition: transform 1s var(--ease-out-cubic);
+}
 
-        #search-form {
-            width: 80%;
-            max-width: 600px;
-        }
+.slide {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        #search-input {
-            width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 2px solid #fff;
-            color: #fff;
-            font-size: 28px;
-            font-family: var(--font-family);
-            font-weight: var(--font-weight-heading);
-            text-align: center;
-            padding: 15px;
-            outline: none;
-        }
+/* --- UPDATED: Hero Images to WebP --- */
+.slide-1 { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./services\ img.webp'); }
 
-        #search-input::placeholder {
-            color: #888;
-            font-weight: var(--font-weight-base);
-        }
 
-        /* Styles for the results (from backend) */
-        #search-results {
-            margin-top: 30px;
-            width: 80%;
-            max-width: 600px;
-            text-align: left;
-        }
-        #search-results a {
-            display: block;
-            padding: 10px;
-            color: #ccc;
-            font-size: 16px;
-            border-bottom: 1px solid #333;
-            transition: background-color 0.3s ease;
-        }
-        #search-results a:hover {
-            background-color: #222;
-        }
-        #search-results a:last-child {
-            border-bottom: none;
-        }
+.slide-content {
+    text-align: center;
+    padding: 30px 50px;
+    border: 2px solid rgba(255, 255, 255, 0);
+    position: relative;
+}
+.slide-content::before, .slide-content::after {
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    transition: transform 1s var(--ease-out-cubic);
+}
+.slide-content::before { top: 0; left: 0; width: 100%; height: 2px; transform: scaleX(0); }
+.slide-content::after { top: 0; left: 0; width: 2px; height: 100%; transform: scaleY(0); }
 
-    </style>
+.slide.active .slide-content::before { transform: scaleX(1); transition-delay: 0.2s; }
+.slide.active .slide-content::after { transform: scaleY(1); transition-delay: 0.2s; }
+.slide.active .slide-border-right, .slide.active .slide-border-bottom { transform: scale(1); transition-delay: 0.2s; }
+
+.slide-border-right, .slide-border-bottom {
+    position: absolute;
+    background-color: #fff;
+    transform: scale(0);
+    transition: transform 1s var(--ease-out-cubic);
+}
+.slide-border-right { top: 0; right: 0; width: 2px; height: 100%; transform-origin: top; }
+.slide-border-bottom { bottom: 0; left: 0; width: 100%; height: 2px; transform-origin: right; }
+
+.slide-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease 0.8s, transform 0.8s ease 0.8s, font-size 0.4s ease;
+}
+.slide.active .slide-content h1 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+.hero-slider:hover .slider-nav { opacity: 1; }
+.slider-nav.prev { left: 30px; }
+.slider-nav.next { right: 30px; }
+.slider-nav span {
+    position: absolute;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+.slider-nav.prev span { right: 120%; }
+.slider-nav.next span { left: 120%; }
+.slider-nav:hover span { opacity: 1; }
+
+/* ------------------------- */
+/* --- 4. Side Menu Panel --- */
+/* ------------------------- */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    max-width: 100vw; 
+    height: 100vh;
+    background-color: #1a1a1a;
+    z-index: 2000;
+    padding: 40px;
+    transform: translateX(100%);
+    transition: transform 0.6s var(--ease-out-cubic), width 0.6s var(--ease-out-cubic);
+}
+.side-menu.active { transform: translateX(0); }
+.side-menu-header { display: flex; justify-content: flex-end; margin-bottom: 40px; }
+.close-btn { font-size: 24px; cursor: pointer; }
+.side-menu-content h4 { font-size: 12px; color: #888; margin-bottom: 10px; text-transform: uppercase; }
+.side-menu-content p, .side-menu-content a { color: #ccc; line-height: 1.6; font-size: 14px; }
+.side-menu-section { margin-bottom: 30px; }
+.side-menu-nav ul li { padding: 10px 0; border-bottom: 1px solid #333; }
+
+/* ------------------------- */
+/* --- 5. Services Section --- */
+/* ------------------------- */
+.services-section {
+    padding: 120px 50px;
+    text-align: center;
+    background-color: #111;
+    color: #fff;
+    transition: padding 0.4s ease;
+}
+.section-title span { display: block; }
+.section-title .subtitle { 
+    font-size: 14px; 
+    color: #ccc;
+} 
+.section-title .maintitle { 
+    font-size: 32px; 
+    font-weight: bold; 
+    margin-bottom: 60px; 
+}
+.services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: flex-direction 0s ease;
+}
+.service-item { flex: 1; min-width: 250px; padding: 20px; }
+.service-item .icon { 
+    font-size: 40px; 
+    margin-bottom: 20px; 
+    color: #bbb;
+}
+.service-item h3 { 
+    font-size: 16px; 
+    margin-bottom: 15px; 
+    text-transform: uppercase; 
+}
+.service-item p { 
+    font-size: 14px; 
+    color: #ccc;
+    line-height: 1.7; 
+}
+
+.service-item:nth-child(2) { transition-delay: 0.2s; }
+.service-item:nth-child(3) { transition-delay: 0.4s; }
+
+
+/* --------------------------------- */
+/* --- 6. RESPONSIVE MEDIA QUERIES --- */
+/* --------------------------------- */
+
+/* --- Tablet (e.g., iPads) --- */
+@media (max-width: 992px) {
+    .main-nav {
+        display: none;
+    }
+
+    .header-icons .hamburger-menu {
+        display: block;
+    }
+
+    .main-header {
+        padding: 20px 30px;
+    }
+    .main-header.scrolled {
+        padding: 15px 30px;
+    }
+
+    .slide-content h1 {
+        font-size: 36px;
+    }
+
+    .services-section {
+        padding: 100px 30px;
+    }
+}
+
+/* --- Mobile (e.g., iPhones, Android) --- */
+@media (max-width: 768px) {
+    
+    /* --- UPDATED: Replaces old .logo rule --- */
+    .logo img {
+        height: 30px; /* Smaller logo on mobile */
+    }
+    .main-header.scrolled .logo img {
+        height: 25px; /* Smaller on mobile + scroll */
+    }
+
+    .main-header {
+        padding: 20px;
+    }
+    .main-header.scrolled {
+        padding: 15px 20px;
+    }
+    
+    .header-icons a, .header-icons .hamburger-menu {
+        margin-left: 15px;
+    }
+
+    .slide-content {
+        padding: 20px 30px;
+    }
+    .slide-content h1 {
+        font-size: 28px;
+    }
+
+    .slider-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .slider-nav.prev { left: 15px; }
+    .slider-nav.next { right: 15px; }
+    .slider-nav span { display: none; }
+
+
+    .side-menu {
+        width: 90vw;
+        padding: 30px;
+    }
+
+    .services-section {
+        padding: 80px 20px;
+    }
+    
+    .services-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .service-item p {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .search-overlay-close {
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+    }
+    #search-input {
+        font-size: 20px;
+    }
+    #search-form, #search-results {
+        width: 90%;
+    }
+}
+
+/* ------------------------- */
+/* --- 7. Search Overlay --- */
+/* ------------------------- */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 10, 0.95);
+    z-index: 9998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: opacity 0.4s var(--ease-out-cubic), visibility 0.4s var(--ease-out-cubic), transform 0.4s var(--ease-out-cubic);
+}
+
+.search-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    z-index: 1001;
+}
+
+.search-overlay-close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.search-overlay-close:hover {
+    transform: rotate(90deg);
+}
+
+#search-form {
+    width: 80%;
+    max-width: 600px;
+}
+
+#search-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    font-size: 28px;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-heading);
+    text-align: center;
+    padding: 15px;
+    outline: none;
+}
+
+#search-input::placeholder {
+    color: #888;
+    font-weight: var(--font-weight-base);
+}
+
+#search-results {
+    margin-top: 30px;
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+}
+#search-results a {
+    display: block;
+    padding: 10px;
+    color: #ccc;
+    font-size: 16px;
+    border-bottom: 1px solid #333;
+    transition: background-color 0.3s ease;
+}
+#search-results a:hover {
+    background-color: #222;
+}
+#search-results a:last-child {
+    border-bottom: none;
+}
+</style>
 </head>
 <body>
 
     <header class="main-header">
-        <div class="logo">Tech-Business</div>
+        <a href="index.html" class="logo">
+            <img src="./stackly.png" alt="Tech-Business Logo">
+        </a>
+        
         <nav class="main-nav">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li> 
+                    <a href="./index.html">Home</a>
+                   
+                </li>
                 
                 <li>
                     <a href="about.html">About Us</a>
                     </li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="#faq">FAQS</a></li>
+                <li><a href="./index.html#faq">FAQS</a></li>
                 
-                <li><a href="#">Contact</a></li>
+                <li><a href="./contact.html">Contact</a></li>
             </ul>
         </nav>
         <div class="header-icons">
+            <a href="login.html" class="header-login-link">Login</a> 
             <a href="#" id="search-open-btn"><i class="fas fa-search"></i></a>
-            
             <div class="hamburger-menu"><i class="fas fa-bars"></i></div>
         </div>
     </header>
@@ -512,14 +604,13 @@
                     <div class="slide-content">
                         <div class="slide-border-right"></div>
                         <div class="slide-border-bottom"></div>
-                        <h1>Leading Software <br> Company </h1>
-                        
+                        <h1>High Quality <br> Wordpress Theme</h1>
                     </div>
                 </div>
                
             </div>
             
-     
+            
         </section>
 
         </main>
@@ -535,10 +626,11 @@
                 <h4>Navigation</h4>
                 <ul>
                     <li><a href="index.html">Home</a></li>
+                    
                     <li><a href="services.html">Services</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="faq">FAQS</a></li>
-                    <li><a href="#">Contact </a></li>
+                    <li><a href="index.html#faq">FAQS</a></li>
+                    <li><a href="./contact.html">Contact </a></li>
                 </ul>
             </div>
             <div class="side-menu-section">
@@ -558,88 +650,134 @@
 
     <script src="script.js" defer></script>
 
-
-
-
-
 <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            // --- Header Scroll Logic ---
-            const header = document.querySelector('.main-header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
+    document.addEventListener('DOMContentLoaded', () => {
+
+    /* ------------------------- */
+    /* --- 1. Header Scroll --- */
+    /* ------------------------- */
+    const header = document.querySelector('.main-header');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    /* ------------------------- */
+    /* --- 2. Side Menu --- */
+    /* ------------------------- */
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const sideMenu = document.querySelector('.side-menu');
+    const closeBtn = document.querySelector('.close-btn');
+
+    if (hamburgerMenu && sideMenu && closeBtn) {
+        // Open side menu
+        hamburgerMenu.addEventListener('click', () => {
+            sideMenu.classList.add('active');
+        });
+
+        // Close side menu
+        closeBtn.addEventListener('click', () => {
+            sideMenu.classList.remove('active');
+        });
+    }
+
+    /* ------------------------- */
+    /* --- 3. Search Overlay --- */
+    /* ------------------------- */
+    const searchOpenBtn = document.getElementById('search-open-btn');
+    const searchOverlay = document.querySelector('.search-overlay');
+    const searchCloseBtn = document.querySelector('.search-overlay-close');
+    const searchInput = document.getElementById('search-input');
+
+    if (searchOpenBtn && searchOverlay && searchCloseBtn) {
+        // Open search
+        searchOpenBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent link from navigating
+            searchOverlay.classList.add('active');
+            // Focus the input for better UX
+            searchInput.focus(); 
+        });
+
+        // Close search
+        searchCloseBtn.addEventListener('click', () => {
+            searchOverlay.classList.remove('active');
+        });
+    }
+
+    /* ------------------------- */
+    /* --- 4. Hero Slider --- */
+    /* ------------------------- */
+    const slidesContainer = document.querySelector('.slides-container');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.slider-nav.prev');
+    const nextBtn = document.querySelector('.slider-nav.next');
+
+    if (slidesContainer && slides.length > 0 && prevBtn && nextBtn) {
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function showSlide(slideIndex) {
+            // Update the transform on the container
+            slidesContainer.style.transform = `translateX(-${slideIndex * 100 / totalSlides}%)`;
+
+            // Remove 'active' from all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
             });
 
-            // --- Side Menu Logic ---
-            const hamburgerMenu = document.querySelector('.hamburger-menu');
-            const sideMenu = document.querySelector('.side-menu');
-            const closeBtn = document.querySelector('.close-btn');
-            if (hamburgerMenu && sideMenu && closeBtn) {
-                hamburgerMenu.addEventListener('click', () => sideMenu.classList.add('active'));
-                closeBtn.addEventListener('click', () => sideMenu.classList.remove('active'));
-            }
+            // Add 'active' to the new current slide
+            slides[slideIndex].classList.add('active');
+        }
 
-            // --- Slider Logic ---
-            const slidesContainer = document.querySelector('.slides-container');
-            const slides = document.querySelectorAll('.slide');
-            const prevBtn = document.querySelector('.slider-nav.prev');
-            const nextBtn = document.querySelector('.slider-nav.next');
-            
-            if (slidesContainer && slides.length > 0 && prevBtn && nextBtn) {
-                let currentSlide = 0;
-                const totalSlides = slides.length;
+        // Next button
+        nextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        });
 
-                function updateSlider() {
-                    const offset = -currentSlide * 100;
-                    slidesContainer.style.transform = `translateX(${offset}vw)`;
-                    slides.forEach((slide, index) => {
-                        if (index === currentSlide) {
-                            slide.classList.add('active');
-                        } else {
-                            slide.classList.remove('active');
-                        }
-                    });
-                }
+        // Previous button
+        prevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        });
+        
+        // Initialize slider
+        showSlide(currentSlide);
+    }
+    
+    /* ------------------------- */
+    /* --- 5. Reveal on Scroll --- */
+    /* ------------------------- */
+    // This handles the ".reveal" class from your CSS
+    
+    const revealElements = document.querySelectorAll('.reveal');
 
-                nextBtn.addEventListener('click', () => {
-                    currentSlide = (currentSlide + 1) % totalSlides;
-                    updateSlider();
-                });
-
-                prevBtn.addEventListener('click', () => {
-                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                    updateSlider();
-                });
-                
-                // Initialize slider on load
-                updateSlider();
-            }
-
-
-            // --- Scroll Reveal Animation Logic ---
-            const revealElements = document.querySelectorAll('.reveal');
-            if (revealElements.length > 0) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                        }
-                    });
-                }, {
-                    threshold: 0.1
-                });
-
-                revealElements.forEach(el => {
-                    observer.observe(el);
-                });
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Optional: Stop observing after it's visible
+                // revealObserver.unobserve(entry.target); 
             }
         });
-    </script>
+    }, {
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    });
+
+    revealElements.forEach(el => {
+        revealObserver.observe(el);
+    });
+
+});
+</script>
+
+
+
+
 
 
 <style>
@@ -780,16 +918,16 @@
 
         <div class="portfolio-left-sticky">
             <div class="image-wrapper">
-                <img src="./pexels-sora-shimazaki-5926370.jpg" 
+                <img src="./web dev.webp" 
                      class="portfolio-image active" 
                      data-image="item-1">
-                <img src="./pexels-mikhail-nilov-7534804.jpg" 
+                <img src="./app dev.webp" 
                      class="portfolio-image" 
                      data-image="item-2">
-                <img src="./pexels-cottonbro-6153739.jpg" 
+                <img src="./ai pic.webp" 
                      class="portfolio-image" 
                      data-image="item-3">
-                <img src="./pexels-tranmautritam-326518.jpg" 
+                <img src="./ui.webp" 
                      class="portfolio-image" 
                      data-image="item-4">
             </div>
@@ -872,40 +1010,41 @@
 
 
 
-
 <!-- footer -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-column footer-brand">
-      <a href="#" class="footer-logo">STACKLY</a>
+      <a href="#" class="footer-logo"><img src="./stackly.png" alt=""></a>
       <p class="footer-tagline">Technology Blog</p>
     </div>
 
     <div class="footer-column footer-links">
       <h4>Main</h4>
       <ul>
-        <li><a href="#">About us</a></li>
-        <li><a href="#">Services</a></li>
+         <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="services.html">Services</a></li>
         
-        <li><a href="#">FAQS</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="index.html#faq">FAQS</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
 
     
 
-    <div class="footer-column footer-socials">
-      <h4>Socials</h4>
-      <ul>
-        <li><a href="#facebook" onclick="alert('Error: File Not Found (404)')"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-        <li><a href="#twitter" onclick="alert('Error: File Not Found (404)')"><i class="fab fa-twitter"></i> Twitter</a></li>
-        <li><a href="#pinterst" onclick="alert('Error: File Not Found (404)')"><i class="fab fa-pinterest-p"></i> Pinterest</a></li>
-        <li><a href="#instagram" onclick="alert('Error: File Not Found (404)')"><i class="fab fa-instagram"></i> Instagram</a></li>
-        <li><a href="#deviantrant" onclick="alert('Error: File Not Found (404)')"><i class="fab fa-deviantart"></i> Deviantart</a></li>
-      </ul>
-    </div>
+   <div class="footer-column footer-socials">
+  <h4>Socials</h4>
+  <ul>
+    <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+    <li><a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+    <li><a href="https://www.pinterest.com" target="_blank"><i class="fab fa-pinterest-p"></i> Pinterest</a></li>
+    <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+    
+  </ul>
+</div>
+
   </div>
 
   <div class="footer-bottom-bar">
@@ -959,14 +1098,17 @@
 
 /* --- Column 1: Brand --- */
 .footer-brand .footer-logo {
-  font-size: 36px;
+  font-size: 16px;
   font-weight: bold;
   color: var(--footer-heading);
   text-decoration: none;
   margin-bottom: 10px;
   display: block;
 }
-
+.footer-logo img {
+  max-width: 150px;
+  height: auto;
+}
 .footer-brand .footer-tagline {
   font-size: 24px;
   color: var(--footer-text);
@@ -1072,7 +1214,6 @@
   }
 }
 </style>
-
 
 
 
