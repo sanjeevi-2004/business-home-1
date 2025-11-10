@@ -101,10 +101,6 @@ p, a, li, span, button, input, textarea {
     width: auto;
     transition: height 0.4s ease;
 }
-/* --- ADDED: Logo shrink on scroll --- */
-.main-header.scrolled .logo img {
-    height: 30px; /* Smaller height when scrolled */
-}
 
 .main-nav { display: flex; } 
 .main-nav ul { display: flex; }
@@ -573,7 +569,7 @@ p, a, li, span, button, input, textarea {
                     <a href="about-2.html">About Us</a>
                     </li>
                 <li><a href="services-2.html">Services</a></li>
-                <li><a href="./index-2.html#faq">FAQS</a></li>
+                <li><a href="./faq2.html">FAQS</a></li>
                 
                 <li><a href="./contcact-2.html">Contact</a></li>
             </ul>
@@ -625,7 +621,7 @@ p, a, li, span, button, input, textarea {
                     
                     <li><a href="services-2.html">Services</a></li>
                     <li><a href="about-2.html">About Us</a></li>
-                    <li><a href="index-2.html#faq">FAQS</a></li>
+                    <li><a href="faq2.html">FAQS</a></li>
                     <li><a href="./contcact-2.html">Contact </a></li>
                 </ul>
             </div>
@@ -716,6 +712,33 @@ p, a, li, span, button, input, textarea {
         let currentSlide = 0;
         const totalSlides = slides.length;
 
+        // --- NEW FUNCTION ---
+        // This function visually disables/enables the nav buttons
+        function updateButtonStates(slideIndex) {
+            // Handle Previous Button
+            if (slideIndex === 0) {
+                prevBtn.style.opacity = '0.3';
+                prevBtn.style.pointerEvents = 'none';
+                prevBtn.style.cursor = 'default';
+            } else {
+                prevBtn.style.opacity = ''; // Reset to CSS default
+                prevBtn.style.pointerEvents = 'auto';
+                prevBtn.style.cursor = 'pointer';
+            }
+
+            // Handle Next Button
+            if (slideIndex === totalSlides - 1) {
+                nextBtn.style.opacity = '0.3';
+                nextBtn.style.pointerEvents = 'none';
+                nextBtn.style.cursor = 'default';
+            } else {
+                nextBtn.style.opacity = ''; // Reset to CSS default
+                nextBtn.style.pointerEvents = 'auto';
+                nextBtn.style.cursor = 'pointer';
+            }
+        }
+        // --- END NEW FUNCTION ---
+
         function showSlide(slideIndex) {
             // Update the transform on the container
             slidesContainer.style.transform = `translateX(-${slideIndex * 100 / totalSlides}%)`;
@@ -727,21 +750,31 @@ p, a, li, span, button, input, textarea {
 
             // Add 'active' to the new current slide
             slides[slideIndex].classList.add('active');
+
+            // --- MODIFIED ---
+            // Call the new function to update buttons every time a slide changes
+            updateButtonStates(slideIndex);
         }
 
-        // Next button
+        // --- MODIFIED: Next button ---
         nextBtn.addEventListener('click', () => {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
+            // Replaced looping logic with a boundary check
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
         });
 
-        // Previous button
+        // --- MODIFIED: Previous button ---
         prevBtn.addEventListener('click', () => {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            showSlide(currentSlide);
+            // Replaced looping logic with a boundary check
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
         });
         
-        // Initialize slider
+        // Initialize slider (this will also call updateButtonStates)
         showSlide(currentSlide);
     }
     
@@ -1558,7 +1591,7 @@ allFaqQuestions.forEach(question => {
         <li><a href="about-2.html">About us</a></li>
         <li><a href="services-2.html">Services</a></li>
         
-        <li><a href="index-2.html#faq">FAQS</a></li>
+        <li><a href="faq2.html">FAQS</a></li>
         <li><a href="contcact-2.html">Contact</a></li>
       </ul>
     </div>

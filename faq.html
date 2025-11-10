@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
-      /* ------------------------- */
+    /* ------------------------- */
 /* --- 1. General Styles --- */
 /* ------------------------- */
 :root {
@@ -101,6 +101,7 @@ p, a, li, span, button, input, textarea {
     width: auto;
     transition: height 0.4s ease;
 }
+/* --- ADDED: Logo shrink on scroll --- */
 
 .main-nav { display: flex; } 
 .main-nav ul { display: flex; }
@@ -183,110 +184,9 @@ p, a, li, span, button, input, textarea {
 
 
 /* ------------------------- */
-/* --- 3. Hero Slider --- */
+/* --- 3. Hero Slider (REMOVED) --- */
 /* ------------------------- */
-.hero-slider {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-}
 
-.slides-container {
-    display: flex;
-    width: 200%;
-    height: 100%;
-    transition: transform 1s var(--ease-out-cubic);
-}
-
-.slide {
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* --- UPDATED: Hero Images to WebP --- */
-.slide-1 { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./contct.webp'); }
-
-
-.slide-content {
-    text-align: center;
-    padding: 30px 50px;
-    border: 2px solid rgba(255, 255, 255, 0);
-    position: relative;
-}
-.slide-content::before, .slide-content::after {
-    content: '';
-    position: absolute;
-    background-color: #fff;
-    transition: transform 1s var(--ease-out-cubic);
-}
-.slide-content::before { top: 0; left: 0; width: 100%; height: 2px; transform: scaleX(0); }
-.slide-content::after { top: 0; left: 0; width: 2px; height: 100%; transform: scaleY(0); }
-
-.slide.active .slide-content::before { transform: scaleX(1); transition-delay: 0.2s; }
-.slide.active .slide-content::after { transform: scaleY(1); transition-delay: 0.2s; }
-.slide.active .slide-border-right, .slide.active .slide-border-bottom { transform: scale(1); transition-delay: 0.2s; }
-
-.slide-border-right, .slide-border-bottom {
-    position: absolute;
-    background-color: #fff;
-    transform: scale(0);
-    transition: transform 1s var(--ease-out-cubic);
-}
-.slide-border-right { top: 0; right: 0; width: 2px; height: 100%; transform-origin: top; }
-.slide-border-bottom { bottom: 0; left: 0; width: 100%; height: 2px; transform-origin: right; }
-
-.slide-content h1 {
-    font-size: 48px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease 0.8s, transform 0.8s ease 0.8s, font-size 0.4s ease;
-}
-.slide.active .slide-content h1 {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.slider-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 20px;
-    opacity: 0;
-    transition: all 0.4s ease;
-}
-.hero-slider:hover .slider-nav { opacity: 1; }
-.slider-nav.prev { left: 30px; }
-.slider-nav.next { right: 30px; }
-.slider-nav span {
-    position: absolute;
-    font-size: 12px;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-.slider-nav.prev span { right: 120%; }
-.slider-nav.next span { left: 120%; }
-.slider-nav:hover span { opacity: 1; }
 
 /* ------------------------- */
 /* --- 4. Side Menu Panel --- */
@@ -359,108 +259,6 @@ p, a, li, span, button, input, textarea {
 
 .service-item:nth-child(2) { transition-delay: 0.2s; }
 .service-item:nth-child(3) { transition-delay: 0.4s; }
-
-
-/* --------------------------------- */
-/* --- 6. RESPONSIVE MEDIA QUERIES --- */
-/* --------------------------------- */
-
-/* --- Tablet (e.g., iPads) --- */
-@media (max-width: 992px) {
-    .main-nav {
-        display: none;
-    }
-
-    .header-icons .hamburger-menu {
-        display: block;
-    }
-
-    .main-header {
-        padding: 20px 30px;
-    }
-    .main-header.scrolled {
-        padding: 15px 30px;
-    }
-
-    .slide-content h1 {
-        font-size: 36px;
-    }
-
-    .services-section {
-        padding: 100px 30px;
-    }
-}
-
-/* --- Mobile (e.g., iPhones, Android) --- */
-@media (max-width: 768px) {
-    
-    /* --- UPDATED: Replaces old .logo rule --- */
-    .logo img {
-        height: 30px; /* Smaller logo on mobile */
-    }
-    .main-header.scrolled .logo img {
-        height: 25px; /* Smaller on mobile + scroll */
-    }
-
-    .main-header {
-        padding: 20px;
-    }
-    .main-header.scrolled {
-        padding: 15px 20px;
-    }
-    
-    .header-icons a, .header-icons .hamburger-menu {
-        margin-left: 15px;
-    }
-
-    .slide-content {
-        padding: 20px 30px;
-    }
-    .slide-content h1 {
-        font-size: 28px;
-    }
-
-    .slider-nav {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-    .slider-nav.prev { left: 15px; }
-    .slider-nav.next { right: 15px; }
-    .slider-nav span { display: none; }
-
-
-    .side-menu {
-        width: 90vw;
-        padding: 30px;
-    }
-
-    .services-section {
-        padding: 80px 20px;
-    }
-    
-    .services-grid {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .service-item p {
-        max-width: 400px;
-        margin: 0 auto;
-    }
-
-    .search-overlay-close {
-        top: 20px;
-        right: 20px;
-        font-size: 30px;
-    }
-    #search-input {
-        font-size: 20px;
-    }
-    #search-form, #search-results {
-        width: 90%;
-    }
-}
 
 /* ------------------------- */
 /* --- 7. Search Overlay --- */
@@ -547,6 +345,194 @@ p, a, li, span, button, input, textarea {
 #search-results a:last-child {
     border-bottom: none;
 }
+
+/* ------------------------------- */
+/* --- 8. FAQ Section (NEW) --- */
+/* ------------------------------- */
+
+/* --- The Main FAQ Container --- */
+.faq-container {
+    max-width: 800px;
+    margin: 40px auto; /* Added margin for spacing */
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #333; /* Subtle border */
+}
+
+/* --- Individual FAQ Item --- */
+.faq-item {
+    border-bottom: 1px solid #333; /* Separator line */
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+/* --- The Question (Clickable Button) --- */
+.faq-question {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    padding: 24px 30px;
+    
+    /* Assumes 'Inter' font is loaded on the page */
+    font-family: inherit; 
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #FFFFFF; /* Bright white for the question */
+    
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    /* For the + / - icon */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question:hover {
+    background-color: #1A1A1A; /* Subtle hover effect */
+}
+
+/* --- The Plus/Minus Icon --- */
+.faq-question::after {
+    content: '+';
+    font-size: 2rem;
+    font-weight: 300;
+    color: #D4AF37; /* Premium Gold Accent */
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+    content: '−'; /* Minus sign */
+    transform: rotate(180deg);
+}
+
+/* --- The Answer (Hidden by default) --- */
+.faq-answer {
+    max-height: 0; /* This is the trick to hide it */
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    
+    color: #B0B0B0; /* Answer text is slightly dimmer */
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* This class is added by JavaScript */
+.faq-answer.active {
+    /* The 'scrollHeight' will be set by JS, but we need padding */
+    padding: 0 30px 24px 30px;
+}
+
+/* The <p> tag inside the answer */
+.faq-answer p {
+    margin: 0;
+}
+
+
+/* --------------------------------- */
+/* --- 6. RESPONSIVE MEDIA QUERIES --- */
+/* --------------------------------- */
+
+/* --- Tablet (e.g., iPads) --- */
+@media (max-width: 992px) {
+    .main-nav {
+        display: none;
+    }
+
+    .header-icons .hamburger-menu {
+        display: block;
+    }
+
+    .main-header {
+        padding: 20px 30px;
+    }
+    .main-header.scrolled {
+        padding: 15px 30px;
+    }
+
+    /* .slide-content h1 {
+        font-size: 36px;
+    } */ /* Rule removed as .slide-content is gone */
+
+    .services-section {
+        padding: 100px 30px;
+    }
+}
+
+/* --- Mobile (e.g., iPhones, Android) --- */
+@media (max-width: 768px) {
+    
+    /* --- UPDATED: Replaces old .logo rule --- */
+    .logo img {
+        height: 30px; /* Smaller logo on mobile */
+    }
+    .main-header.scrolled .logo img {
+        height: 25px; /* Smaller on mobile + scroll */
+    }
+
+    .main-header {
+        padding: 20px;
+    }
+    .main-header.scrolled {
+        padding: 15px 20px;
+    }
+    
+    .header-icons a, .header-icons .hamburger-menu {
+        margin-left: 15px;
+    }
+
+    /* .slide-content {
+        padding: 20px 30px;
+    }
+    .slide-content h1 {
+        font-size: 28px;
+    } */ /* Rules removed as .slide-content is gone */
+
+    /* .slider-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .slider-nav.prev { left: 15px; }
+    .slider-nav.next { right: 15px; }
+    .slider-nav span { display: none; } */ /* Rules removed as .slider-nav is gone */
+
+
+    .side-menu {
+        width: 90vw;
+        padding: 30px;
+    }
+
+    .services-section {
+        padding: 80px 20px;
+    }
+    
+    .services-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .service-item p {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .search-overlay-close {
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+    }
+    #search-input {
+        font-size: 20px;
+    }
+    #search-form, #search-results {
+        width: 90%;
+    }
+}
 </style>
 </head>
 <body>
@@ -565,7 +551,7 @@ p, a, li, span, button, input, textarea {
                 
                 <li>
                     <a href="about.html">About Us</a>
-                    </li>
+                </li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="./faq.html">FAQS</a></li>
                 
@@ -580,21 +566,51 @@ p, a, li, span, button, input, textarea {
     </header>
 
     <main>
-        <section class="hero-slider">
-            <div class="slides-container">
-                <div class="slide slide-1 active">
-                    <div class="slide-content">
-                        <div class="slide-border-right"></div>
-                        <div class="slide-border-bottom"></div>
-                        <h1>Get In Touch <br>With Us</h1>
+        <section id="faq" class="services-section reveal">
+            <div class="section-title">
+                <span class="subtitle reveal">Got Questions?</span>
+                <span class="maintitle reveal">FREQUENTLY ASKED QUESTIONS</span>
+            </div>
+
+            <div class="faq-container reveal">
+        
+                <div class="faq-item">
+                    <button class="faq-question">What types of software services do you offer?</button>
+                    <div class="faq-answer">
+                        <p>We offer custom software development, mobile and web app development, UI/UX design, API integration, and ongoing software maintenance and support to help businesses achieve their digital goals.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">How long does it take to complete a software project?</button>
+                    <div class="faq-answer">
+                        <p>Project timelines vary based on size and complexity. Smaller projects may take a few weeks, while large-scale applications can take several months. We provide a detailed project roadmap before development begins.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">How much do your software services cost?</button>
+                    <div class="faq-answer">
+                        <p>Costs depend on the project scope, features, and technology stack. After understanding your requirements, we provide a transparent estimate and offer flexible pricing models such as fixed cost or hourly billing.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">Do you provide maintenance and support after launch?</button>
+                    <div class="faq-answer">
+                        <p>Yes. We offer ongoing maintenance, performance monitoring, updates, bug fixes, and feature enhancements to ensure your software continues to run smoothly after deployment.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">How do you ensure software quality and security?</button>
+                    <div class="faq-answer">
+                        <p>We follow industry best practices, perform code reviews, conduct rigorous testing, and ensure security through encryption and secure coding standards. Your data and confidentiality are our top priority.</p>
                     </div>
                 </div>
                 
             </div>
-            
-            
         </section>
-
         </main>
 
     <div class="side-menu">
@@ -607,11 +623,11 @@ p, a, li, span, button, input, textarea {
             <div class="side-menu-section side-menu-nav">
                 <h4>Navigation</h4>
                 <ul>
-                    <li><a href="index-2.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     
                     <li><a href="services.html">Services</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="faq.html">FAQS</a></li>
+                    <li><a href="./faq.html">FAQS</a></li>
                     <li><a href="./contact.html">Contact </a></li>
                 </ul>
             </div>
@@ -627,7 +643,8 @@ p, a, li, span, button, input, textarea {
         <form id="search-form">
             <input type="text" id="search-input" placeholder="Type and hit enter...">
         </form>
-        <div id="search-results"></div> </div>
+        <div id="search-results"></div> 
+    </div>
 
 
     <script src="script.js" defer></script>
@@ -691,45 +708,8 @@ p, a, li, span, button, input, textarea {
     }
 
     /* ------------------------- */
-    /* --- 4. Hero Slider --- */
+    /* --- 4. Hero Slider (REMOVED) --- */
     /* ------------------------- */
-    const slidesContainer = document.querySelector('.slides-container');
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.slider-nav.prev');
-    const nextBtn = document.querySelector('.slider-nav.next');
-
-    if (slidesContainer && slides.length > 0 && prevBtn && nextBtn) {
-        let currentSlide = 0;
-        const totalSlides = slides.length;
-
-        function showSlide(slideIndex) {
-            // Update the transform on the container
-            slidesContainer.style.transform = `translateX(-${slideIndex * 100 / totalSlides}%)`;
-
-            // Remove 'active' from all slides
-            slides.forEach(slide => {
-                slide.classList.remove('active');
-            });
-
-            // Add 'active' to the new current slide
-            slides[slideIndex].classList.add('active');
-        }
-
-        // Next button
-        nextBtn.addEventListener('click', () => {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        });
-
-        // Previous button
-        prevBtn.addEventListener('click', () => {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            showSlide(currentSlide);
-        });
-        
-        // Initialize slider
-        showSlide(currentSlide);
-    }
     
     /* ------------------------- */
     /* --- 5. Reveal on Scroll --- */
@@ -754,222 +734,35 @@ p, a, li, span, button, input, textarea {
         revealObserver.observe(el);
     });
 
+    /* ------------------------------------ */
+    /* --- 6. FAQ Accordion (NEW) --- */
+    /* ------------------------------------ */
+    const allFaqQuestions = document.querySelectorAll('.faq-question');
+
+    allFaqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            // Find the answer panel
+            const answer = question.nextElementSibling;
+
+            // Toggle the 'active' class on the button
+            question.classList.toggle('active');
+            
+            // Toggle the 'active' class on the answer
+            answer.classList.toggle('active');
+
+            // Set the max-height for the smooth transition
+            if (answer.classList.contains('active')) {
+                // Set max-height to the scroll height to show the content
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            } else {
+                // Set max-height to null (or '0') to hide it
+                answer.style.maxHeight = null;
+            }
+        });
+    });
+
 });
 </script>
-
-
-
-
-
-<section class="contact-section">
-  <div class="container">
-
-    <h1 class="contact-title">
-      Looking for <span>interesting</span> team to work with? get in touch
-    </h1>
-
-    <form class="contact-form">
-      <div class="input-row">
-        <input id="name" type="text" placeholder="Name" />
-        <input id="email" type="email" placeholder="Email" />
-        <input id="subject" type="text" placeholder="Subject" />
-      </div>
-
-      <textarea id="message" placeholder="Message"></textarea>
-
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-
-    <div class="contact-info-wrapper">
-
-      <div class="office-img">
-        <img src="./contact 2.webp" alt="Office" />
-      </div>
-
-      <div class="contact-details">
-        <div class="info-group">
-          <h4>Phone</h4>
-          <p>+78 985 214 456</p>
-          <p>+78 985 214 456</p>
-        </div>
-
-        <div class="info-group">
-          <h4>Email</h4>
-          <p>hello@caster.com</p>
-          <p>enquiry@caster.com</p>
-        </div>
-
-        <div class="info-group">
-          <h4>Address</h4>
-          <p>
-            1564 Mandan Road,<br />
-            Columbia, Missouri.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<style>
-/* ---------- GENERAL ---------- */
-body {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  background: #0e0e0e;
-  color: white;
-}
-
-.contact-section {
-  padding: 80px 10%;
-  background: #0e0e0e;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-}
-
-/* ---------- TITLE ---------- */
-.contact-title {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 50px;
-  line-height: 1.3;
-}
-
-.contact-title span {
-  color: #D4AF37;
-}
-
-/* ---------- FORM ---------- */
-.contact-form {
-  width: 100%;
-  margin-bottom: 50px;
-}
-
-.input-row {
-  display: flex;
-  gap: 20px;
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 14px 16px;
-  border: none;
-  border-bottom: 1px solid #444;
-  background: transparent;
-  color: white;
-  outline: none;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-input:focus,
-textarea:focus {
-  border-bottom: 1px solid #D4AF37;
-}
-
-textarea {
-  height: 90px;
-  margin-top: 25px;
-  resize: none;
-}
-
-/* ---------- BUTTON ---------- */
-.btn {
-  margin-top: 30px;
-  padding: 12px 28px;
-  border: 1px solid #fff;
-  background: transparent;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #D4AF37;
-  border-color: #D4AF37;
-}
-
-/* ---------- CONTACT INFO BLOCK ---------- */
-.contact-info-wrapper {
-  display: flex;
-  gap: 40px;
-  margin-top: 40px;
-  align-items: stretch;
-}
-
-.office-img {
-  width: 65%;
-}
-
-.office-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.contact-details {
-  width: 35%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.info-group {
-  margin-bottom: 20px;
-}
-
-.info-group h4 {
-  font-size: 18px;
-  margin-bottom: 8px;
-  font-weight: 500;
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 900px) {
-  .input-row {
-    flex-direction: column;
-  }
-
-  .contact-info-wrapper {
-    flex-direction: column;
-  }
-
-  .office-img,
-  .contact-details {
-    width: 100%;
-  }
-
-  .contact-title {
-    font-size: 36px;
-  }
-}
-</style>
-
-<script>
-document.querySelector(".contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const subject = document.getElementById("subject").value.trim();
-  const message = document.getElementById("message").value.trim();
-
-  if (!name || !email || !subject || !message) {
-    alert("⚠ Please fill out all fields before submitting.");
-    return;
-  }
-
-  alert("✅ Message Sent Successfully!");
-  this.reset();
-});
-</script>
-
-
 
 <!-- footer -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -988,7 +781,7 @@ document.querySelector(".contact-form").addEventListener("submit", function (e) 
         <li><a href="about.html">About us</a></li>
         <li><a href="services.html">Services</a></li>
         
-        <li><a href="faq.html">FAQS</a></li>
+        <li><a href="./faq.html">FAQS</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
@@ -1069,6 +862,7 @@ document.querySelector(".contact-form").addEventListener("submit", function (e) 
 .footer-logo img {
   max-width: 150px;
   height: auto;
+  
 }
 .footer-brand .footer-tagline {
   font-size: 24px;
@@ -1177,7 +971,5 @@ document.querySelector(".contact-form").addEventListener("submit", function (e) 
 </style>
 
 
-
-        
 </body>
 </html>
