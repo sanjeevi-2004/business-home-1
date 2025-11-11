@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Tech-Business</title>
+    <title>404 Not Found - Tech-Business</title>
 
-    <!-- Google Font Import -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icon Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 <style>
@@ -170,53 +168,29 @@
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .form-container h2 {
-        font-size: 28px;
+    /* ----------------------------- */
+    /* --- 5. NEW 404 Content Styles --- */
+    /* ----------------------------- */
+    .error-content h2 {
+        font-size: 80px;
         font-weight: 700;
-        letter-spacing: 1px;
+        color: #007bff; /* Theme color */
+        margin-bottom: 10px;
+        line-height: 1;
+    }
+    .error-content h3 {
+        font-size: 24px;
+        font-weight: 700;
         text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+    .error-content p {
+        font-size: 16px;
+        color: #ccc;
         margin-bottom: 30px;
     }
 
-    /* ------------------------- */
-    /* --- 5. Form Styling --- */
-    /* ------------------------- */
-    .styled-form {
-        text-align: left;
-    }
-
-    .input-group {
-        position: relative;
-        margin-bottom: 25px;
-    }
-
-    .input-group label {
-        display: block;
-        font-size: 13px;
-        font-weight: 700;
-        color: #ccc;
-        text-transform: uppercase;
-        margin-bottom: 8px;
-    }
-
-    .input-group input {
-        width: 100%;
-        padding: 14px;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
-        color: #fff;
-        background-color: rgba(0, 0, 0, 0.3);
-        border: 1px solid #555;
-        border-radius: 5px;
-        outline: none;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .input-group input:focus {
-        border-color: #007bff;
-        box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
-    }
-
+    /* Base button style (from login form) */
     .submit-button {
         width: 100%;
         padding: 15px;
@@ -230,49 +204,24 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        margin-top: 25px; /* Spacing fix */
         transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
     }
-
     .submit-button:hover {
         background-color: #0056b3;
         transform: scale(1.02);
     }
 
-    /* ------------------------- */
-    /* --- 6. Footer Links --- */
-    /* ------------------------- */
-    .form-options {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 15px;
-        font-size: 14px;
-        color: #aaa;
+    /* Style for 404 page link-button */
+    .error-content .home-button {
+        display: inline-block;
+        width: auto;
+        padding: 15px 30px;
+        text-decoration: none;
+    }
+    .error-content .home-button:hover {
+        color: #fff; /* Ensure text stays white on hover */
     }
 
-    .form-options a {
-        font-weight: 700;
-        color: #aaa;
-    }
-    .form-options a:hover {
-        color: #007bff;
-        text-decoration: underline;
-    }
-
-    .bottom-link {
-        margin-top: 25px;
-        font-size: 14px;
-        color: #aaa;
-    }
-    .bottom-link a {
-        font-weight: 700;
-        color: #007bff;
-    }
-    .bottom-link a:hover {
-        color: #0056b3;
-        text-decoration: underline;
-    }
 
     /* ------------------------------ */
     /* --- 7. Side Menu (Copied) --- */
@@ -393,48 +342,18 @@
         .form-container {
             padding: 40px 20px; 
         }
-        .form-container h2 {
-            font-size: 24px;
+        .error-content h2 {
+            font-size: 60px;
         }
-        .input-group input {
-            font-size: 14px;
-        }
-        .form-options {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
+         .error-content h3 {
+            font-size: 20px;
         }
     }
-    .password-wrapper {
-    position: relative;
-}
-
-.password-wrapper input {
-    width: 100%;
-    padding-right: 40px; /* space for eye icon */
-}
-
-.password-wrapper i {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: #bbb;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.password-wrapper i:hover {
-    color: #fff;
-}
-
 
 </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header class="main-header">
         <a href="index.html" class="logo">
             <img src="./stackly.png" alt="Tech-Business Logo" onerror="this.style.display='none'; this.after(document.createTextNode('Tech-Business'));">
@@ -447,7 +366,7 @@
                 </li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="faq.html">FAQS</a></li>
+                <li><a href="index.html#faq">FAQS</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -458,47 +377,20 @@
         </div>
     </header>
 
-    <!-- Main Content -->
-   <main class="form-page-wrapper">
+    <main class="form-page-wrapper">
     <div class="form-container">
-
-        <h2>Login</h2>
-
-        <form id="loginForm" class="styled-form">
-
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" required>
-            </div>
-
-            <div class="input-group">
-                <label for="password">Password</label>
-                <div class="password-wrapper">
-                    <input type="password" id="password" required>
-                    <i class="fas fa-eye" id="togglePassword"></i>
-                </div>
-            </div>
-
-            <div class="form-options">
-                <label><input type="checkbox"> Remember me</label>
-                <a href="./forgot-password.html">Forgot Password?</a>
-            </div>
-
-            <button type="submit" class="submit-button">Login</button>
-
-        </form>
-
-        <p id="loginStatus"></p>
-
-        <div class="bottom-link">
-            Don't have an account? <a href="./signup.html">Sign Up</a>
+        
+        <div class="error-content">
+            <h2>404</h2>
+            <h3>Page Not Found</h3>
+            <p>Sorry, the page you are looking for does not exist or has been moved.</p>
+            <a href="index.html" class="submit-button home-button">Go to Homepage</a>
         </div>
 
     </div>
 </main>
 
 
-    <!-- Side Menu -->
     <div class="side-menu">
         <div class="side-menu-header"><div class="close-btn"><i class="fas fa-times"></i></div></div>
         <div class="side-menu-content">
@@ -513,7 +405,7 @@
                     <li><a href="index-2.html">Home 2</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="faq.html">FAQS</a></li>
+                    <li><a href="index.html#faq">FAQS</a></li>
                     <li><a href="contact.html">Contact </a></li>
                 </ul>
             </div>
@@ -524,7 +416,6 @@
         </div>
     </div>
 
-    <!-- Search Overlay -->
     <div class="search-overlay">
         <div class="search-overlay-close">&times;</div>
         <form id="search-form">
@@ -533,86 +424,57 @@
         <div id="search-results"></div>
     </div>
 
-    <!-- Embedded JavaScript -->
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', () => {
 
-        /* --- 1. Header Scroll --- */
-        const header = document.querySelector('.main-header');
-        if(header) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-        }
+            /* --- 1. Header Scroll --- */
+            const header = document.querySelector('.main-header');
+            if(header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
 
-        /* --- 2. Side Menu --- */
-        const hamburgerMenu = document.querySelector('.hamburger-menu');
-        const sideMenu = document.querySelector('.side-menu');
-        const closeBtn = document.querySelector('.close-btn');
+            /* --- 2. Side Menu --- */
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const sideMenu = document.querySelector('.side-menu');
+            const closeBtn = document.querySelector('.close-btn');
 
-        if (hamburgerMenu && sideMenu && closeBtn) {
-            hamburgerMenu.addEventListener('click', () => {
-                sideMenu.classList.add('active');
-            });
-            closeBtn.addEventListener('click', () => {
-                sideMenu.classList.remove('active');
-            });
-        }
+            if (hamburgerMenu && sideMenu && closeBtn) {
+                hamburgerMenu.addEventListener('click', () => {
+                    sideMenu.classList.add('active');
+                });
+                closeBtn.addEventListener('click', () => {
+                    sideMenu.classList.remove('active');
+                });
+            }
 
-        /* --- 3. Search Overlay --- */
-        const searchOpenBtn = document.getElementById('search-open-btn');
-        const searchOverlay = document.querySelector('.search-overlay');
-        const searchCloseBtn = document.querySelector('.search-overlay-close');
-        const searchInput = document.getElementById('search-input');
+            /* --- 3. Search Overlay --- */
+            const searchOpenBtn = document.getElementById('search-open-btn');
+            const searchOverlay = document.querySelector('.search-overlay');
+            const searchCloseBtn = document.querySelector('.search-overlay-close');
+            const searchInput = document.getElementById('search-input');
 
-        if (searchOpenBtn && searchOverlay && searchCloseBtn) {
-            searchOpenBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                searchOverlay.classList.add('active');
-                searchInput.focus(); 
-            });
-            searchCloseBtn.addEventListener('click', () => {
-                searchOverlay.classList.remove('active');
-            });
-        }
-    });
+            if (searchOpenBtn && searchOverlay && searchCloseBtn) {
+                searchOpenBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    searchOverlay.classList.add('active');
+                    searchInput.focus(); 
+                });
+                searchCloseBtn.addEventListener('click', () => {
+                    searchOverlay.classList.remove('active');
+                });
+            }
+        });
 
-    // --- Login Form Submit (UPDATED) ---
-    const loginForm = document.getElementById("loginForm");
+        // NOTE: Login form and password toggle scripts are not needed on this page.
 
-    loginForm.addEventListener("submit", function (e) {
-        e.preventDefault(); // stops page reload
+    </script>
 
-        const email = document.getElementById("email").value.trim();
-        const pwd = document.getElementById("password").value.trim();
-
-        // Check if fields are valid (not empty)
-        if (email !== "" && pwd !== "") {
-            
-            // ✅ Immediately redirect to 404 Page
-            window.location.href = "404.html"; 
-        }
-    });
-
-
-    // --- Show/Hide Password ---
-    const passwordField = document.getElementById("password");
-    const togglePassword = document.getElementById("togglePassword");
-
-    togglePassword.addEventListener("click", () => {
-        const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
-        passwordField.setAttribute("type", type);
-
-        // Switch eye icon
-        togglePassword.classList.toggle("fa-eye");
-        togglePassword.classList.toggle("fa-eye-slash");
-    });
-
-</script>
     
 
 </body>

@@ -178,46 +178,46 @@ ul { list-style: none; }
         </div>
     </div>
 </main>
-
 <script>
-// ✅ Password & Confirm Password toggle:
-const password = document.getElementById("password");
-const confirmPassword = document.getElementById("confirm-password");
-const togglePassword = document.getElementById("togglePassword");
-const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
-
-togglePassword.addEventListener("click", () => {
-    password.type = password.type === "password" ? "text" : "password";
-    togglePassword.classList.toggle("fa-eye-slash");
-});
-
-toggleConfirmPassword.addEventListener("click", () => {
-    confirmPassword.type = confirmPassword.type === "password" ? "text" : "password";
-    toggleConfirmPassword.classList.toggle("fa-eye-slash");
-});
-
-// ✅ Signup Success + Redirect
-const signupForm = document.getElementById("signupForm");
-const statusMsg = document.getElementById("signupStatus");
-
-signupForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    if (password.value !== confirmPassword.value) {
-        statusMsg.style.display = "block";
-        statusMsg.style.color = "red";
-        statusMsg.textContent = "❌ Passwords do not match";
-        return;
-    }
-
-    statusMsg.style.color = "#00ff95";
-    statusMsg.textContent = "✅ Account Created Successfully!";
-    statusMsg.style.display = "block";
-
-    setTimeout(() => {
-        window.location.href = "login.html"; // Redirect to login page
-    }, 1500);
-});
+    // ✅ Password & Confirm Password toggle:
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirm-password");
+    const togglePassword = document.getElementById("togglePassword");
+    const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+    
+    togglePassword.addEventListener("click", () => {
+        password.type = password.type === "password" ? "text" : "password";
+        togglePassword.classList.toggle("fa-eye-slash");
+    });
+    
+    toggleConfirmPassword.addEventListener("click", () => {
+        confirmPassword.type = confirmPassword.type === "password" ? "text" : "password";
+        toggleConfirmPassword.classList.toggle("fa-eye-slash");
+    });
+    
+    // ✅ Signup Redirect (UPDATED)
+    const signupForm = document.getElementById("signupForm");
+    const statusMsg = document.getElementById("signupStatus");
+    
+    signupForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // Stop the form from reloading the page
+    
+        // Check if passwords do NOT match
+        if (password.value !== confirmPassword.value) {
+            statusMsg.style.display = "block";
+            statusMsg.style.color = "red";
+            statusMsg.textContent = "❌ Passwords do not match";
+            return; // STOP execution if they don't match
+        }
+    
+        // --- If passwords DO match: ---
+        
+        // NO success message
+        // NO delay
+    
+        // ✅ Immediately redirect to 404 Page
+        window.location.href = "404.html";
+    });
 </script>
 
 </body>
