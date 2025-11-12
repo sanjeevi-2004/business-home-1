@@ -562,6 +562,57 @@ p, a, li, span, button, input, textarea {
 #search-results a:last-child {
     border-bottom: none;
 }
+/* ------------------------- */
+/* --- 7. Search Overlay --- */
+/* ------------------------- */
+
+/* ... (your existing .search-overlay styles) ... */
+
+/* --- ADDED: Wrapper for icon + input --- */
+.search-input-container {
+    position: relative;
+    width: 100%;
+}
+
+/* --- ADDED: Icon styles --- */
+.search-form-icon {
+    position: absolute;
+    left: 10px; /* Padding from the left edge */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888; /* Matches the placeholder color */
+    font-size: 22px; /* A bit smaller than the input text */
+}
+
+/* ... (your existing #search-form styles) ... */
+
+
+/* --- MODIFIED: Updated #search-input --- */
+#search-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    font-size: 28px;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-heading);
+    
+    /* MODIFIED: Changed from 'center' */
+    text-align: left; 
+    
+    /* MODIFIED: Added padding-left to make space for the icon */
+    padding: 15px 15px 15px 45px; /* (top, right, bottom, left) */
+    
+    outline: none;
+}
+
+#search-input::placeholder {
+    color: #888;
+    font-weight: var(--font-weight-base);
+    /* No change needed here, it will now align left automatically */
+}
+
 </style>
 </head>
 <body>
@@ -637,12 +688,17 @@ p, a, li, span, button, input, textarea {
         </div>
     </div>
 
-    <div class="search-overlay">
+  <div class="search-overlay">
         <div class="search-overlay-close">&times;</div>
         <form id="search-form">
-            <input type="text" id="search-input" placeholder="Type and hit enter...">
+            <div class="search-input-container">
+                <i class="fas fa-search search-form-icon"></i>
+                
+                <input type="text" id="search-input" placeholder="Type and hit enter...">
+            </div>
         </form>
-        <div id="search-results"></div> </div>
+        <div id="search-results"></div> 
+    </div>
 
 
     <script src="script.js" defer></script>
@@ -682,28 +738,53 @@ p, a, li, span, button, input, textarea {
         });
     }
 
-    /* ------------------------- */
-    /* --- 3. Search Overlay --- */
-    /* ------------------------- */
-    const searchOpenBtn = document.getElementById('search-open-btn');
-    const searchOverlay = document.querySelector('.search-overlay');
-    const searchCloseBtn = document.querySelector('.search-overlay-close');
-    const searchInput = document.getElementById('search-input');
+   /* ------------------------- */
+ /* --- 3. Search Overlay --- */
+/* ------------------------- */
+const searchOpenBtn = document.getElementById('search-open-btn');
+const searchOverlay = document.querySelector('.search-overlay');
+ const searchCloseBtn = document.querySelector('.search-overlay-close');
+const searchInput = document.getElementById('search-input');
 
-    if (searchOpenBtn && searchOverlay && searchCloseBtn) {
-        // Open search
-        searchOpenBtn.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent link from navigating
-            searchOverlay.classList.add('active');
-            // Focus the input for better UX
-            searchInput.focus(); 
-        });
+    // --- ADD THESE LINES to get the new elements ---
+    const searchForm = document.getElementById('search-form');
+    const searchIcon = document.querySelector('.search-form-icon');
 
-        // Close search
-        searchCloseBtn.addEventListener('click', () => {
-            searchOverlay.classList.remove('active');
-        });
-    }
+
+ if (searchOpenBtn && searchOverlay && searchCloseBtn && searchForm && searchIcon) { // <-- MODIFIED this line
+ // Open search
+ searchOpenBtn.addEventListener('click', (e) => {
+ e.preventDefault(); // Prevent link from navigating
+ searchOverlay.classList.add('active');
+ // Focus the input for better UX
+ searchInput.focus(); 
+ });
+
+// Close search
+searchCloseBtn.addEventListener('click', () => {
+searchOverlay.classList.remove('active');
+ });
+
+// --- ADD THIS NEW FUNCTION ---
+ // This handles the "Enter" key press
+ searchForm.addEventListener('submit', (e) => {
+ e.preventDefault(); // Stops the page from reloading
+
+T  // This is where you would run your search logic
+ console.log('Searching for:', searchInput.value);
+
+// For now, let's just close the overlay
+searchOverlay.classList.remove('active');
+// You would also clear the search results, etc.
+});
+
+// --- ADD THIS NEW FUNCTION ---
+// This makes the icon click do the same thing as "Enter"
+searchIcon.addEventListener('click', () => {
+// This triggers the 'submit' event listener above
+searchForm.requestSubmit();
+});
+ }
 
     /* ------------------------- */
     /* --- 4. Hero Slider --- */
